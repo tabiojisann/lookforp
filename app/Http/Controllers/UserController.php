@@ -115,7 +115,7 @@ class UserController extends Controller
 
         Session::flash('profile_success', 'プロフィールを変更しました');
 
-         return view('users.show', ['user' => $user, 'age' => $age]);
+         return view('users.edit', ['user' => $user, 'age' => $age]);
      }
 
      public function PRedit(User $user)
@@ -134,7 +134,7 @@ class UserController extends Controller
 
         Session::flash('PR_success', 'PR欄を変更しました');
          
-         return view('users.show', [
+         return view('users.edit', [
              'user' => $user,
          ]);
      }
@@ -191,12 +191,12 @@ class UserController extends Controller
      
      }
 
-     public function destroy(User $user)
-     {
-         $user->delete();
+    //  public function destroy(User $user)
+    //  {
+    //      $user->delete();
 
-         return redirect()->route('/');
-     }
+    //      return redirect()->route('/');
+    //  }
 
      public function follow(Request $request, User $user)
      {
