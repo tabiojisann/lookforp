@@ -165,7 +165,7 @@ class UserController extends Controller
 
         if(isset($file)) {
             $fileName = $file->getClientOriginalName();
-            $path = Storage::disk('s3')->putFileAs('articles',$file, $fileName, 'public');
+            $path = Storage::disk('s3')->putFileAs('users',$file, $fileName, 'public');
 
             $user->image = Storage::disk('s3')->url($path);
         }
