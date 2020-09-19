@@ -143,7 +143,7 @@
 @enderror
   
 <article-textarea
-:text="{{json_encode($article->text)}}"
+:article="{{json_encode($article->text)}}"
 :mark-body="{{json_encode($article->mark_body)}}">
 </article-textarea>
 
