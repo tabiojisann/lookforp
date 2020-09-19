@@ -12,12 +12,16 @@
   @endif
 
     <div class="container cloudy-knoxville-gradient" style="max-width: 100%;">
-      @include('errors.all')
+      <!-- @include('errors.all') -->
 
       <div class="row">
 
         <div class="col-12 col-md-5 offset-md-1 mt-5 pb-5">
           
+
+          @error('image')
+            <span class="text-danger">{{ $message }}</span>
+          @enderror
           <a type="button" class="text-white col-12 col-md-10" data-toggle="modal" data-target="#centralModalMd">
             <div class="view overlay">
               <img class="card-img-top" src="{{ $user->image ?: asset('logo/NoImage.jpg') }}" width="300" height="300" alt="photo">
@@ -27,7 +31,6 @@
               </div>
             </div>
           </a>
-
 
           <div class="Mobile col-md-10 mt-5">
             <a href="{{ route('users.show', ['user' => $user]) }}" class="btn btn-block border">
@@ -59,47 +62,44 @@
                       </div>
                       
                       <div class="d-flex justify-content-end">
-                          <button type="button" class="btn btn-outline-info waves-effect text-black btn-sm" data-dismiss="modal">キャンセル</button>
-                          <button type="submit" class="btn btn-default text-white btn-md float-right">更新</button>
-                        </div>
+                        <button type="button" class="btn btn-outline-info waves-effect text-black btn-sm" data-dismiss="modal">キャンセル</button>
+                        <button type="submit" class="btn btn-default text-white btn-md float-right">更新</button>
+                      </div>
                     </div>
                   </div>
                 </form>
-
-              
             </div>
           </div>
         </div>
 
         <div class="col-12 col-md-5  mt-5">
 
-          <div class="name d-flex justify-content-between">
+          <div class="name d-flex justify-content-between border-bottom">
             <h2 class="">{{ $user->name }}</h2>
             <!-- <a href="{{ route('users.profileEdit', ['user' => $user]) }}" class="h4 ml-3"><i class="fas fa-user-edit text-primary"></i></i></a> -->
-            <a href="{{ route('users.profileEdit', ['user' => $user]) }}">
+            <!-- <a href="{{ route('users.profileEdit', ['user' => $user]) }}">
               <i class="fas fa-user-edit border p-2 bg-white text-muted">編集</i>    
+            </a> -->
+
+            <a type="button" class="float-right" data-toggle="modal" data-target="#centralModalMd">
+              <i class="fas fa-user-edit border p-2 bg-white text-muted float-right">編集</i> 
             </a>
           </div>
       
-          <div class="pb-5">
-            @if(!empty($user->youtube))
-              <a type="button" href="{{ $user->youtube }}" class="btn-floating btn-lg"><i class="fab fa-youtube red-text h2"></i></a>
-            @endif
+          <div class="my-4 border">
+            <a type="button" href="" class="btn-floating btn-lg "><i class="fab fa-youtube red-text h2"></i>
+            <a type="button" href="" class="btn-floating btn-lg"><i class="fab fa-twitter-square blue-text h2"></i>
+            <a type="button" href="" class="btn-floating btn-lg mb-2"><img src="{{ asset('logo/blog.jpg') }}" width="33"  alt="">
 
-            @if(!empty($user->twitter))
-              <a type="button" href="{{ $user->twitter }}" class="btn-floating btn-lg "><i class="fab fa-twitter-square blue-text h2"></i></a>
-            @endif
+            <a type="button" class="float-right" data-toggle="modal" data-target="#centralModalMd">
+              <i class="fas fa-user-edit border p-2 bg-white text-muted float-right">編集</i> 
+            </a>
 
-            @if(!empty($user->blog))
-              <a type="button" href="{{ $user->blog }}" class="btn-floating btn-lg mb-2"><img src="{{ asset('logo/blog.jpg') }}" width="35"  alt=""></a>
-            @endif
-    
           </div>
 
           @include('users.profile')
 
         </div>
-        
 
       </div>
     </div> 
