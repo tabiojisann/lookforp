@@ -28,16 +28,16 @@
 
         <ul class="list-unstyled">
           <li class="my-2 ">
-            <a href="#!" class="text-dark">利用規約</a>
+            <a href="" class="text-dark">利用規約</a>
           </li>
           <li  class="my-2">
-            <a href="#!" class="text-dark">プライバシー</a>
+            <a href="" class="text-dark">プライバシー</a>
           </li>
           <li class="my-2">
             <a href="#!" class="text-dark">ヘルプ</a>
           </li>
           <li class="my-2">
-            <a href="#!" class="text-dark">お問い合わせ</a>
+            <a href="/footer/contact" class="text-dark">お問い合わせ</a>
           </li>
         </ul>
 

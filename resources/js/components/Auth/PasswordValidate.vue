@@ -26,7 +26,7 @@ export default {
 
     methods: {
       check() {   
-        if(this.password.length <= 8) {
+        if(this.password.length < 8) {
           this.errorMax = true
           this.hideMax  = false
         } else {

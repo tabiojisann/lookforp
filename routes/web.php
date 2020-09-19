@@ -49,6 +49,9 @@ Route::get('/articles', 'ArticleController@search')->name('articles.search')->mi
 Route::get('/users', 'UserController@search')->name('users.search')->middleware('auth');
 
 
+Route::prefix('footer')->name('footer.')->group(function() {
+  Route::get('/contact', 'FooterController@contact')->name('contact');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 

@@ -1,17 +1,18 @@
 <div class="bg heavy-rain-gradient">
   <div class="container">
     <div class="row" >
-      <div class="col-12">
+      <div class="col-12 col-md-8 offset-md-2">
         <div class="card mt-5 mb-5">
           <div class="card-body pt-0">
             <div class="article-user mt-3">
-              <img src="{{ $article->user->image ?: asset('logo/user.jpg') }}" class="d-inline rounded-circle" width="50" height="45" alt="">
-              @if(Auth::id() === $article->user_id)
-                <b class="text-danger">{{ $article->user->name}}</b>
-              @else
-                <b class="text-info">{{ $article->user->name}}</b>
-              @endif
-
+              <a href="{{ route('users.show', ['user' => $article->user]) }}">
+                <img src="{{ $article->user->image ?: asset('logo/user.jpg') }}" class="d-inline rounded-circle" width="50" height="45" alt="">
+                @if(Auth::id() === $article->user_id)
+                  <b class="text-danger">{{ $article->user->name}}</b>
+                @else
+                  <b class="text-info">{{ $article->user->name}}</b>
+                @endif
+              </a>
             </div>
 
             <div class="border"></div>

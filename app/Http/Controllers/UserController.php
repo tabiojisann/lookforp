@@ -86,19 +86,31 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-
-        return view('users.edit', [
-            'user' => $user,
-        ]);
+        $authUser = Auth::user();
+        
+        if ($user->id === $authUser->id) {
+            return view('users.edit', [
+                'user' => $user,
+            ]);
+        } else {
+            return redirect()->route('articles.index');
+        }
+       
     }
 
 
 
      public function profileEdit(User $user)
      {
-        return view('users.profileEdit', [
-            'user' => $user,
-        ]);
+        $authUser = Auth::user();
+        
+        if ($user->id === $authUser->id) {
+            return view('users.profileEdit', [
+                'user' => $user,
+            ]);
+        } else {
+            return redirect()->route('articles.index');
+        }
      }
 
      public function profileUpdate(UserRequest $request, User $user)
@@ -121,9 +133,15 @@ class UserController extends Controller
      public function PRedit(User $user)
      {
 
-        return view('users.PRedit', [
-            'user' => $user,
-        ]);
+        $authUser = Auth::user();
+        
+        if ($user->id === $authUser->id) {
+            return view('users.PRedit', [
+                'user' => $user,
+            ]);
+        } else {
+            return redirect()->route('articles.index');
+        }
      }
 
      public function PRupdate(UserRequest $request, User $user)

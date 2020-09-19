@@ -8,9 +8,9 @@
   @include('users.tabs', ['hasShow' => false, 'hasMyArticles' => true])
   
   @foreach($articles as $article)
-    <div class="container my-5">
+    <div class="container blue lighten-5" style="max-width: 100%;">
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 col-md-8 offset-md-2 my-3">
           @include('articles.card')
         </div>
       </div>

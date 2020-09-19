@@ -76,7 +76,7 @@
               <tbody>
                 <tr>
                   <td class=""><img src="{{ $user->image ?: asset('logo/user.jpg') }}"  class="d-inline rounded-circle" height="40" width="40"  alt=""></td>
-                  <td>{{ $user->name }}</td>
+                  <td >{{ $user->name }}</td>
                   <td>{{ $user->sex }}</td>
                   <td>{{ $user->age }}</td>
                 </tr>

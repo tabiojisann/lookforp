@@ -71,7 +71,10 @@
 
           <div class="name d-flex justify-content-between">
             <h2 class="">{{ $user->name }}</h2>
-            <a href="{{ route('users.profileEdit', ['user' => $user]) }}" class="h3 ml-3"><i class="fas fa-user-edit text-primary"></i></i></a>
+            <!-- <a href="{{ route('users.profileEdit', ['user' => $user]) }}" class="h4 ml-3"><i class="fas fa-user-edit text-primary"></i></i></a> -->
+            <a href="{{ route('users.profileEdit', ['user' => $user]) }}">
+              <i class="fas fa-user-edit border p-2 bg-white text-muted">編集</i>    
+            </a>
           </div>
       
           <div class="pb-5">
@@ -103,12 +106,14 @@
  
       <div class="row">
 
-        <div class="col-12 col-md-8 offset-md-2 mt-1">
- 
-          <div class="text border p-5">
+        <div class="col-12 col-md-10 offset-md-1 mt-1">
           @if( Auth::id() === $user->id )
-      <a href="{{ route('users.PRedit', ['user' => $user]) }}" class="float-right h3 ml-3"><i class="fas fa-user-edit text-primary"></i></i></a>
+            <a href="{{ route('users.PRedit', ['user' => $user]) }}" class="float-right">
+            <i class="far fa-edit p-2 border text-muted">編集</i>
+            </a>
+            <!-- <a href="{{ route('users.PRedit', ['user' => $user]) }}" class="float-right h4 ml-3"><i class="fas fa-user-edit text-primary"></i></i></a> -->
           @endif
+          <div class="text border p-5">
             {!! nl2br(($user->mark_body)) !!}
           </div>
         </div>
