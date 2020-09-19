@@ -9,11 +9,11 @@
     @method('PATCH')
     @csrf
 
-    @include('errors')
+    @include('errors.all')
     <div class="container blue lighten-4" style="max-width: 100%; height: 100vh;">
       <user-textarea
-      v-bind:user="{{json_encode($user->PR)}}"
-      v-bind:mark-body="{{json_encode($user->mark_body)}}">
+      :user="{{json_encode($user->PR)}}"
+      :mark-body="{{json_encode($user->mark_body)}}">
       </user-textarea>
     </div>
   </form>   

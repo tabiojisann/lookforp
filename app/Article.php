@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use cebe\markdown\Markdown as Markdown;
 
 class Article extends Model
 {
@@ -46,7 +47,16 @@ class Article extends Model
         return $this->keeps->count();
     }
 
-    
+    public function parse()
+    {
+        $parser = new Markdown();
+        
+        return $parser->parse($this->text);
+    }
+
+    public function getMarkBodyAttribute() {
+        return $this->parse();
+    }
 
 }
 

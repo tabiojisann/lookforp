@@ -4,7 +4,7 @@
               {{ $hasShow ? 'active morpheus-den-gradient
                                  text-white animated fadeIn' 
                               : 'text-muted' }}" >
-      マイページ
+      プロフィール編集
     </a> 
   </li>
 

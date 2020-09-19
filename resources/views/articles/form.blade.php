@@ -1,9 +1,17 @@
 @csrf
 
+@error('image')
+  <span class="text-danger">{{ $message }}</span>
+@enderror
+
 <article-image-upload 
   class="mt-5 pb-5"
   v-bind:article="{{ $article ?? '' }}">
 </article-image-upload>
+
+@error('position')
+  <span class="text-danger">{{ $message }}</span>
+@enderror
 
 <div class="form-group w-100 mt-5 pb-5 text-center">
   <strong>募集ポジション</strong>
@@ -65,6 +73,10 @@
   </div>
 </div>
 
+@error('style')
+  <span class="text-danger">{{ $message }}</span>
+@enderror
+
 <div class="form-group w-100 mt-5 pb-5 text-center">
   <strong>募集スタイル</strong>
   <strong class="text-danger">必須</strong>
@@ -114,6 +126,9 @@
 
 </div>
 
+@error('title')
+  <span class="text-danger">{{ $message }}</span>
+@enderror
 
 <div class="form-group shadow-textarea mt-5 pb-5">
   <strong>タイトル</strong>
@@ -123,11 +138,14 @@
 </div>
 
 
-<div class="form-group shadow-textarea mt-5 pb-5">
-  <strong>本文</strong>
-  <strong class="text-danger">必須</strong>
-  <textarea name="text" required class="form-control z-depth-2" rows="16" placeholder="2000文字まで打てます">{{ $article->text ?? old('text') }}</textarea>
-</div>
+@error('text')
+  <span class="text-danger">{{ $message }}</span>
+@enderror
+  
+<article-textarea
+:text="{{json_encode($article->text)}}"
+:mark-body="{{json_encode($article->mark_body)}}">
+</article-textarea>
 
 
 

@@ -9,7 +9,9 @@
       <div class="col-12">
         <div class="card mt-3">
           <div class="card-body pt-0">
-            @include('errors')
+            <div class="text-center mt-3">
+               @include('errors.all')
+            </div>
             <div class="card-text">
               <form method="POST" action="{{ route('articles.update', ['article' => $article]) }}" enctype="multipart/form-data">
                 @method('PATCH')

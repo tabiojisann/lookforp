@@ -12,7 +12,7 @@
 
 
     <div class="container cloudy-knoxville-gradient" style="max-width: 100%;">
-      @include('errors')
+      @include('errors.all')
 
       <div class="row">
 
@@ -29,10 +29,6 @@
 
           <div class="name d-flex justify-content-between">
             <h2 class="">{{ $user->name }}</h2>
-
-            @if( Auth::id() === $user->id )
-              <a href="{{ route('users.profileEdit', ['user' => $user]) }}" class="h3 ml-3"><i class="fas fa-user-edit text-primary"></i></i></a>
-            @endif
 
             @if( Auth::id() !== $user->id )
               <follow-button
@@ -75,9 +71,6 @@
         <div class="col-12 col-md-8 offset-md-2 mt-1">
  
           <div class="text border p-5">
-          @if( Auth::id() === $user->id )
-      <a href="{{ route('users.PRedit', ['user' => $user]) }}" class="float-right h3 ml-3"><i class="fas fa-user-edit text-primary"></i></i></a>
-          @endif
             {!! nl2br(($user->mark_body)) !!}
           </div>
         </div>

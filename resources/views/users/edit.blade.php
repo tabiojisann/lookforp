@@ -12,7 +12,7 @@
   @endif
 
     <div class="container cloudy-knoxville-gradient" style="max-width: 100%;">
-      @include('errors')
+      @include('errors.all')
 
       <div class="row">
 
@@ -29,7 +29,13 @@
           </a>
 
 
- 
+          <div class="Mobile col-md-10 mt-5">
+            <a href="{{ route('users.show', ['user' => $user]) }}" class="btn btn-block border">
+              結果を表示
+            </a>
+          </div>
+        
+
           <div class="modal fade" id="centralModalMd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
             <div class="modal-dialog modal-lg" role="document">
@@ -42,8 +48,6 @@
                     <div class="modal-header">
                       <h5 class="modal-title w-100 " id="myModalLabel">イメージ画像</h5>
                     </div>
-
-                    @include('errors')
 
                     <div class="container mt-3">
                       <div class="row">
@@ -67,7 +71,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-4 offset-md-1 mt-5">
+        <div class="col-12 col-md-5  mt-5">
 
           <div class="name d-flex justify-content-between">
             <h2 class="">{{ $user->name }}</h2>
@@ -109,9 +113,8 @@
         <div class="col-12 col-md-10 offset-md-1 mt-1">
           @if( Auth::id() === $user->id )
             <a href="{{ route('users.PRedit', ['user' => $user]) }}" class="float-right">
-            <i class="far fa-edit p-2 border text-muted">編集</i>
+              <i class="far fa-edit p-2 border text-muted">編集</i>
             </a>
-            <!-- <a href="{{ route('users.PRedit', ['user' => $user]) }}" class="float-right h4 ml-3"><i class="fas fa-user-edit text-primary"></i></i></a> -->
           @endif
           <div class="text border p-5">
             {!! nl2br(($user->mark_body)) !!}

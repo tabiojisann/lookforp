@@ -1,16 +1,14 @@
 <template>
-
   <div>
-    <div class="py-2" style="height: 90vh;">
-       <mavon-editor v-model="PR" name="PR" language="ja" class="h-100" @change="changeText"/>
+    <div class="form-group shadow-textarea mt-5 pb-5">
+      <strong>本文</strong>
+      <strong class="text-danger">必須</strong>
+      <div class="py-2" style="height: 90vh;">
+       <mavon-editor v-model="text" name="text" language="ja" placeholder="2000文字以内" class="h-100" @change="changeText"/>
+      </div>
     </div>
-    <textarea name="PR" v-model="PR" tabindex="30" cols="70" rows="30" placeholder="本文" class="d-none form-control z-depth-2"></textarea>
-    
-    <div class="d-flex justify-content-center border-top  blue lighten-5 ">
-      <input type="submit" class="btn btn-success px-5" value="更新">
-    </div>
+    <textarea name="text" v-model="text" class="form-control z-depth-2 d-none" rows="16" placeholder="2000文字まで打てます"></textarea>
   </div>
-
 </template>
 
 <script>
@@ -21,7 +19,7 @@ Vue.use(mavonEditor);
 
 export default {
   props: {
-    user: {
+     text: {
       type: String,
     },
 
@@ -32,7 +30,7 @@ export default {
 
   data() {
     return {
-      PR: this.user,
+      PR: this.text,
       parseText: this.markBody,
       html: '',
       value: '',
@@ -52,16 +50,12 @@ export default {
       this.mdText = value;
       this.htmlText = reder;
     }
-  }
+  },
 
 
 }
-
 </script>
 
-<style scoped>
-  /* .editor {
-    overflow: hidden scroll;
-  } */
+<style>
 
 </style>

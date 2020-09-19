@@ -48,11 +48,10 @@
             <div class="container">
               <div class="row mt-5 border-top">
                 <div class="col col-md-8 offset-md-2 mt-2">
-                  <p  class="mt-4">{!! nl2br(e($article->text))!!}</p>
+                  {!! nl2br(($article->mark_body)) !!}
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>

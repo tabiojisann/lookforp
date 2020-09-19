@@ -20,7 +20,7 @@
               </div>
             </div>
 
-            @include('errors')
+            @include('errors.all')
 
             <div class="card-body mx-4 mt-4">
               <form method="POST" action="{{ route('login') }}">

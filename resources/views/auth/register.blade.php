@@ -21,8 +21,6 @@
 
             <p class="h4 text-center border-bottom py-4">新規登録</p>
 
-            <!-- @include('errors') -->
-
             <form method="POST" class="" action="{{ route('register') }}">
               @csrf
             

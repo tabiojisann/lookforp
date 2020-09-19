@@ -32,6 +32,7 @@ import Vue from 'vue'
 import ArticleKeep from './components/Article/ArticleKeep'
 import FollowButton from './components/User/FollowButton'
 import ArticleImageUpload from './components/Article/ArticleImageUpload'
+import ArticleTextarea from './components/Article/ArticleTextarea'
 import UserImageUpload from './components/User/UserImageUpload'
 import UserTextarea from './components/User/UserTextarea'
 import NameValidate from './components/Auth/NameValidate'
@@ -46,6 +47,7 @@ const app = new Vue({
         ArticleKeep,
         FollowButton,
         ArticleImageUpload,
+        ArticleTextarea,
         UserImageUpload,
         UserTextarea,
         NameValidate,
