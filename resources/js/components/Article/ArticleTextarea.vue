@@ -4,10 +4,10 @@
       <strong>本文</strong>
       <strong class="text-danger">必須</strong>
       <div class="py-2" style="height: 90vh;">
-       <mavon-editor v-model="this.text" name="text" language="ja" placeholder="2000文字以内" class="h-100" @change="changeText"/>
+       <mavon-editor v-model="text" name="text" language="ja" placeholder="2000文字以内" class="h-100" @change="changeText"/>
       </div>
     </div>
-    <textarea name="text" v-model="this.text" class="form-control z-depth-2 d-none" rows="16" placeholder="2000文字まで打てます"></textarea>
+    <textarea name="text" v-model="text" class="form-control z-depth-2 d-none" rows="16" placeholder="2000文字まで打てます"></textarea>
   </div>
 </template>
 
