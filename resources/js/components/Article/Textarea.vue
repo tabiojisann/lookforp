@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       text: this.article,
-      parseText: this.markBody,
+      // parseText: this.markBody,
       html: '',
       value: '',
       mdText: '',
