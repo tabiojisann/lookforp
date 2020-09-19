@@ -104,7 +104,6 @@
               <head>
               <tr>
                 <th style="width:30%" >生年月日</th>
-                <th >{{  $user->birthday->format('Y年 n月 j日') }}</th>
               </tr>
               </head>
            
