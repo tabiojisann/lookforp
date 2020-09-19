@@ -33,7 +33,7 @@
           </a>
 
           <div class="Mobile col-md-10 mt-5">
-            <a href="{{ route('users.show', ['user' => $user]) }}" class="btn btn-block border">
+            <a href="{{ route('users.show', ['user' => $user]) }}" class="btn btn-block blue text-white">
               結果を表示
             </a>
           </div>
@@ -74,19 +74,21 @@
 
         <div class="col-12 col-md-5  mt-5">
 
-          <div class="name d-flex justify-content-between border-bottom">
-            <h2 class="">{{ $user->name }}</h2>
+          <div class="name border">
+            <small class="d-block border-bottom text-primary">ニックネーム</small>
+            <h2 class="d-inline">{{ $user->name }}</h2>
             <!-- <a href="{{ route('users.profileEdit', ['user' => $user]) }}" class="h4 ml-3"><i class="fas fa-user-edit text-primary"></i></i></a> -->
             <!-- <a href="{{ route('users.profileEdit', ['user' => $user]) }}">
               <i class="fas fa-user-edit border p-2 bg-white text-muted">編集</i>    
             </a> -->
 
             <a type="button" class="float-right" data-toggle="modal" data-target="#centralModalMd">
-              <i class="fas fa-user-edit border p-2 bg-white text-muted float-right">編集</i> 
+              <i class="fas fa-user-edit border p-2 bg-white text-muted">編集</i> 
             </a>
           </div>
       
           <div class="my-4 border">
+            <small class="d-block border-bottom text-primary">関連リンク</small>
             <a type="button" href="" class="btn-floating btn-lg "><i class="fab fa-youtube red-text h2"></i>
             <a type="button" href="" class="btn-floating btn-lg"><i class="fab fa-twitter-square blue-text h2"></i>
             <a type="button" href="" class="btn-floating btn-lg mb-2"><img src="{{ asset('logo/blog.jpg') }}" width="33"  alt="">
@@ -94,11 +96,16 @@
             <a type="button" class="float-right" data-toggle="modal" data-target="#centralModalMd">
               <i class="fas fa-user-edit border p-2 bg-white text-muted float-right">編集</i> 
             </a>
-
           </div>
 
           @include('users.profile')
 
+        </div>
+
+        <div class="Desk col-md-10 my-2">
+          <a href="{{ route('users.show', ['user' => $user]) }}" class="btn btn-block blue text-white">
+            結果を表示
+          </a>
         </div>
 
       </div>

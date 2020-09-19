@@ -28,6 +28,8 @@ jobs:
          key: composer-v1-{{ checksum "composer.lock" }}
 
       - run: composer install -n --prefer-dist
+      - run: rm -rf node_modeles
+      - run: npm cache clear -f
 
       - save_cache: 
          key: composer-v1-{{ checksum "composer.lock" }}
