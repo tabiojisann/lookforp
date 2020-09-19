@@ -53,10 +53,10 @@ jobs:
          paths:
           - node_modeles 
 
-      - run: rm -rf node_modules
-      - run: npm cache clear -f 
-      - run: npm ci 
-          
+      # - run: rm -rf node_modules
+      # - run: npm cache clear -f 
+      # - run: npm ci 
+
       - run: npm run dev
       - run: 
           name: アプリケーションテスト
