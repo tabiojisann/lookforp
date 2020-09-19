@@ -100,11 +100,16 @@
 
           <div class="my-4 border">
             <small class="d-block border-bottom text-primary">年齢、生年月日</small>
-            <tr>
-              <th style="width:30%" >生年月日</th>
-              <th >{{  $user->birthday->format('Y年 n月 j日') }}</th>
-            </tr>
-
+            <table class="table">
+              <head>
+              <tr>
+                <th style="width:30%" >生年月日</th>
+                <th >{{  $user->birthday->format('Y年 n月 j日') }}</th>
+              </tr>
+              </head>
+           
+            </table>
+            
             <a type="button" class="float-right" data-toggle="modal" data-target="#centralModalMd">
               <i class="fas fa-user-edit border p-2 bg-white text-muted float-right">編集</i> 
             </a>
