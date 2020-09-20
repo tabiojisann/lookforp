@@ -12,20 +12,21 @@
   @endif
 
     <div class="container cloudy-knoxville-gradient" style="max-width: 100%;">
-      <div class="text-center">
+      <!-- <div class="text-center">
         @include('errors.all')
-      </div>
+      </div> -->
 
 
       <div class="row">
 
         <div class="col-12 col-md-5 offset-md-1 mt-5 pb-5">
           
-
+          
+        <!-- Desktop 専用-->
           @error('image')
-            <span class="text-danger">{{ $message }}</span>
+            <small class="text-danger Mobile">{{ $message }}</small>
           @enderror
-          <a type="button" class="text-white col-12 col-md-10" data-toggle="modal" data-target="#centralModalMd">
+          <a type="button" class="text-white col-12 col-md-10 Mobile" data-toggle="modal" data-target="#centralModalMd">
             <div class="view overlay">
               <img class="card-img-top" src="{{ $user->image ?: asset('logo/NoImage.jpg') }}" width="300" height="300" alt="photo">
               <div class="mask flex-center rgba-stylish-light">
@@ -34,6 +35,28 @@
               </div>
             </div>
           </a>
+        <!-- Desktop　専用 -->
+
+        <!-- Mobile 専用-->
+          <div class="Desk border">
+            <form action="{{ route('users.imageUpdate', ['user' => $user]) }}" method="POST" enctype="multipart/form-data">
+              @method('PATCH')
+              @csrf
+
+              @error('image')
+                <div class="text-center">
+                  <small class="text-danger">{{ $message }}</small>
+                </div>
+              @enderror
+              <div class="col-12 text-center p-5">
+                <user-image-upload
+                :user="{{ $user ?? ''}}">
+                </user-image-upload>
+                <button type="submit" class="btn btn-default text-white btn-md">アイコンを更新</button>
+              </div>
+            </form> 
+          </div>
+        <!-- Mobile 専用-->
 
           <div class=" col-md-10 mt-2">
             <a href="{{ route('users.show', ['user' => $user]) }}" class="btn btn-block blue text-white">
@@ -41,7 +64,7 @@
             </a>
           </div>
         
-          <!-- modal -->
+          <!-- modal Image-->
 
           <div class="modal fade" id="centralModalMd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
@@ -75,10 +98,10 @@
             </div>
           </div>
         </div>
-        <!-- modal -->
+        <!-- modal Image-->
 
 
-        <!-- modal -->
+        <!-- modal birthday-->
           <div class="modal fade" id="carbon" tabindex="-1" role="dialog" aria-labelledby="carbon" aria-hidden="true">
 
             <div class="modal-dialog modal-lg" role="document">
@@ -110,23 +133,27 @@
               </form>
             </div>
           </div>   
-        <!-- modal -->
+        <!-- modal birthday-->
 
 
         <div class="col-12 col-md-5  mt-5">
 
           <div class="border my-4">
             <small class="d-block border-bottom text-primary pl-3">生年月日</small>
-            @if(!empty($user->birthday))
-              <b class="pl-3">{{  $user->birthday->format('Y年 n月 j日') }}</b>
-              <b class="pl-3 indigo-text">{{  $user->age }}才</b>
-            @else
-              <b class="pl-3">設定していません</b>
-            @endif
 
-            <a type="button" data-toggle="modal" data-target="#carbon">
-              <i class="far fa-edit p-2 border pink-text ml-5">編集</i>
-            </a>
+            <div class="d-flex justify-content-between">
+              @if(!empty($user->birthday))
+                <b class="pl-3">{{  $user->birthday->format('Y年 n月 j日') }}</b>
+                <b class="pr-5 indigo-text">{{  $user->age }}才</b>
+              @else
+                <b class="pl-3">設定していません</b>
+              @endif
+
+              <a type="button" data-toggle="modal" data-target="#carbon">
+                <i class="far fa-edit p-2 border pink-text ml-5">編集</i>
+              </a>
+            </div>
+           
           </div>
 
           <form action="{{ route('users.profileUpdate', ['user' => $user]) }}" method="POST">
@@ -234,10 +261,10 @@
                   <small class="text-danger">{{ $message }}</small>
                 @enderror
 
-                <div class="col-12 d-flex  justify-content-between mt-4">
+                <div class="col-12 d-flex justify-content-between mt-4">
                   <label>身長</label>
                   <div>
-                    <input type="number" name="height" id="height" class="col-7" value="{{ $user->height ?? old('height') }}">cm
+                    <input type="number" name="height" id="height" class="col-10 form-control d-inline" value="{{ $user->height ?? old('height') }}">cm
                   </div>
                 </div>
               </div>
@@ -251,7 +278,7 @@
                 <div class="col-12 d-flex  justify-content-between mt-4">
                   <label>体重</label>
                   <div>
-                    <input type="number" name="weight" id="weight" class="col-7" value="{{ $user->weight ?? old('weight') }}">kg
+                    <input type="number" name="weight" id="weight" class="col-10 form-control d-inline" value="{{ $user->weight ?? old('weight') }}">kg
                   </div>
                 </div>
               </div>
