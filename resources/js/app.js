@@ -28,6 +28,7 @@ window.Vue = require('vue');
 
 import './bootstrap'
 import './cookie'
+import './main'
 import Vue from 'vue'
 import ArticleKeep from './components/Article/ArticleKeep'
 import FollowButton from './components/User/FollowButton'
