@@ -52,7 +52,7 @@
                 <user-image-upload
                 :user="{{ $user ?? ''}}">
                 </user-image-upload>
-                <button type="submit" class="btn btn-default text-white btn-md">アイコンを更新</button>
+                <button type="submit" class="btn btn-default text-white btn-md">アイコンを変更</button>
               </div>
             </form> 
           </div>
@@ -138,7 +138,43 @@
 
         <div class="col-12 col-md-5  mt-5">
 
-          <div class="border my-4">
+        <!-- Mobile 専用 -->
+          <div class="container border my-4 Desk " style="height: 210px;">
+            <small class="d-block border-bottom text-primary">生年月日</small>
+            <form action="{{ route('users.profileUpdate', ['user' => $user]) }}" method="POST">
+              @method('PATCH')
+              @csrf
+
+              <div class="container text-center">
+                @if(!empty($user->birthday))
+                  <b>{{  $user->birthday->format('Y年 n月 j日') }}</b>
+                  <b class="indigo-text">{{  $user->age }}才</b>
+                @else
+                  <b>設定していません</b>
+                @endif
+              </div>
+          
+
+              <div class="container mt-3 d-flex justify-content-center">
+                <div class="form-group col-10 col-md-7 col-lg-5 ">
+                  <input type="date" class="form-control" name="birthday" value="">
+                </div>
+              </div>
+
+              <div class="text-center">
+                <p class="pink-text">非公開にするにはそのまま変更ボタンを押してください</p>
+                <button type="submit" class="btn btn-orange text-white btn-sm">生年月日を変更</button>
+              </div>
+
+
+
+            </form>
+          </div>
+
+        <!-- Mobile 専用 -->
+
+        <!-- Desktop 専用 -->
+          <div class="border my-4 Mobile">
             <small class="d-block border-bottom text-primary pl-3">生年月日</small>
 
             <div class="d-flex justify-content-between">
@@ -153,8 +189,10 @@
                 <i class="far fa-edit p-2 border pink-text ml-5">編集</i>
               </a>
             </div>
-           
           </div>
+        <!-- Desktop 専用 -->
+
+
 
           <form action="{{ route('users.profileUpdate', ['user' => $user]) }}" method="POST">
             @method('PATCH')
