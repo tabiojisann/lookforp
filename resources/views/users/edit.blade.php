@@ -72,10 +72,59 @@
             </div>
           </div>
         </div>
-
         <!-- modal -->
 
+
+        <!-- modal -->
+          <div class="modal fade" id="carbon" tabindex="-1" role="dialog" aria-labelledby="carbon" aria-hidden="true">
+
+            <div class="modal-dialog modal-lg" role="document">
+              <form action="{{ route('users.profileUpdate', ['user' => $user]) }}" method="POST">
+                @method('PATCH')
+                @csrf
+                <div class="modal-content">
+                      
+                  <div class="modal-header">
+                    <h5 class="modal-title w-100" id="myModalLabel">生年月日を入力</h5>
+                  </div>
+
+                  <div class="container mt-3 d-flex justify-content-center">
+                    <div class="form-group col-10 col-md-7 col-lg-5 ">
+                      <input type="date" class="form-control" name="birthday" value="">
+                    </div>
+                  </div>
+
+                  <div class="text-center">
+                    <p class="pink-text">非公開にするにはそのまま更新ボタンを押してください</p>
+                  </div>
+
+                  <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-outline-info waves-effect text-black btn-sm" data-dismiss="modal">キャンセル</button>
+                    <button type="submit" class="btn btn-default text-white btn-md float-right">更新</button>
+                  </div>
+
+                </div>  
+              </form>
+            </div>
+          </div>   
+        <!-- modal -->
+
+
         <div class="col-12 col-md-5  mt-5">
+
+          <div class="border my-4">
+            <small class="d-block border-bottom text-primary pl-3">生年月日</small>
+            @if(!empty($user->birthday))
+              <b class="pl-3">{{  $user->birthday->format('Y年 n月 j日') }}</b>
+              <b class="pl-3 indigo-text">{{  $user->age }}才</b>
+            @else
+              <b class="pl-3">設定していません</b>
+            @endif
+
+            <a type="button" data-toggle="modal" data-target="#carbon">
+              <i class="far fa-edit p-2 border pink-text ml-5">編集</i>
+            </a>
+          </div>
 
           <form action="{{ route('users.profileUpdate', ['user' => $user]) }}" method="POST">
             @method('PATCH')
@@ -116,15 +165,10 @@
               @enderror
 
             </div> 
-
-            <!-- <div class="form-group col-10 col-md-7 col-lg-5 mt-5">
-              <strong class="text-muted">生年月日</strong class="text-muted">
-              <input type="date" class="form-control" name="birthday" value="{{ $user->birthday }}">
-            </div>
     
               @error('birthday')
                 <span class="text-danger">{{ $message }}</span>
-              @enderror -->
+              @enderror
             
             <div class="my-4 border">
               <small class="d-block border-bottom text-primary mb-4 pl-3">プロフィール</small>
@@ -253,7 +297,7 @@
             </div>
 
             <div class="d-flex justify-content-center my-3">
-              <input type="submit" class="btn btn-default mt-5 px-5" value="更新">
+              <input type="submit" class="btn btn-success mt-5 px-5" value="更新">
             </div>
           </form> 
         </div>
