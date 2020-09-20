@@ -12,7 +12,6 @@
 
 
     <div class="container cloudy-knoxville-gradient" style="max-width: 100%;">
-      @include('errors.all')
 
       <div class="row">
 
@@ -68,7 +67,7 @@
  
       <div class="row">
 
-        <div class="col-12 col-md-8 offset-md-2 mt-1">
+        <div class="col-12 col-md-10 offset-md-1 mt-1">
  
           <div class="text border p-5">
             {!! nl2br(($user->mark_body)) !!}

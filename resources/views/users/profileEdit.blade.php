@@ -36,7 +36,7 @@
 
               <div class="form-group col">
                 <label class="text-muted">性別</label class="text-muted">
-                <div class="custom-control custom-radio ">
+                <div class="custom-control custom-radio custom-control-inline">
                   <input type="radio" class="custom-control-input" id="男性" name="sex" value="男性"  
                     <?php 
                       if( !empty($user->sex)){
@@ -49,7 +49,7 @@
                   <label class="custom-control-label" for="男性">男性</label>
                 </div>
 
-                <div class="custom-control custom-radio ">
+                <div class="custom-control custom-radio custom-control-inline">
                   <input type="radio" class="custom-control-input" id="女性" name="sex" value="女性"  
                     <?php 
                       if( !empty($user->sex)){
