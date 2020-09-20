@@ -139,7 +139,7 @@
         <div class="col-12 col-md-5  mt-5">
 
         <!-- Mobile 専用 -->
-          <div class="container border my-4 Desk " style="height: 210px;">
+          <div class="container border my-4 Desk " style="height: 230px;">
             <small class="d-block border-bottom text-primary">生年月日</small>
             <form action="{{ route('users.profileUpdate', ['user' => $user]) }}" method="POST">
               @method('PATCH')
@@ -180,7 +180,7 @@
             <div class="d-flex justify-content-between">
               @if(!empty($user->birthday))
                 <b class="pl-3">{{  $user->birthday->format('Y年 n月 j日') }}</b>
-                <b class="pr-5 indigo-text">{{  $user->age }}才</b>
+                <b class="indigo-text">{{  $user->age }}才</b>
               @else
                 <b class="pl-3">設定していません</b>
               @endif
