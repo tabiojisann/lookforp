@@ -12,7 +12,10 @@
   @endif
 
     <div class="container cloudy-knoxville-gradient" style="max-width: 100%;">
-      <!-- @include('errors.all') -->
+      <div class="text-center">
+        @include('errors.all')
+      </div>
+
 
       <div class="row">
 
@@ -170,7 +173,7 @@
                 <span class="text-danger">{{ $message }}</span>
               @enderror
             
-            <div class="my-4 border">
+            <div class="border">
               <small class="d-block border-bottom text-primary mb-4 pl-3">プロフィール</small>
               <div class="form-group col border-bottom">
                 <label class="">性別</label>
@@ -296,7 +299,7 @@
               </div>
             </div>
 
-            <div class="d-flex justify-content-center my-3">
+            <div class="d-flex justify-content-center mb-3">
               <input type="submit" class="btn btn-success mt-5 px-5" value="更新">
             </div>
           </form> 
@@ -313,7 +316,7 @@
         <div class="col-12 col-md-10 offset-md-1 mt-1">
           @if( Auth::id() === $user->id )
             <a href="{{ route('users.PRedit', ['user' => $user]) }}" class="float-right">
-              <i class="far fa-edit p-2 border text-muted">編集</i>
+              <i class="far fa-edit p-2 border pink-text">編集</i>
             </a>
           @endif
           <div class="text border p-5">

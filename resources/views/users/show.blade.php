@@ -37,6 +37,14 @@
                endpoint="{{ route('users.follow', ['user' => $user]) }}"
                >
                </follow-button>
+            @else 
+              <a href="{{ route('users.edit', ['user' => $user] ) }}"　class="">
+                <div class="border p-2">
+                  <i class="fas fa-user-edit pink-text">
+                    <span class="text-muted ml-1">編集</span>
+                  </i>
+                </div>
+              </a>
             @endif
           </div>
          
