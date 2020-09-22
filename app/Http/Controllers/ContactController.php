@@ -28,7 +28,7 @@ class ContactController extends Controller
         $contact->fill($request->all());
         $contact->save();
 
-       Mail::to('takumiezumi@icloud.com')->send(new ContactMail('mails.contact', 'お問い合わせありがとうございます', $contact));
+        Mail::to($contact->email)->send(new ContactMail('mails.contact', 'お問い合わせありがとうございます', $contact));
 
         return redirect()->route('contact.complete');
     }
