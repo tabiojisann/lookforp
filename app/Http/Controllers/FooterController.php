@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class FooterController extends Controller
 {
     public function contact() {
-        return view('footer.contact');
+        return view('footer.contact.index');
     }
+
 }

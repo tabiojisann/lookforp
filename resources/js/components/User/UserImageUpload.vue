@@ -8,7 +8,6 @@
           <span class="text-danger h5" v-if="this.data.image" @click="resetFile()">リセット</span>
         </div>
       </div>
-      
     
       <div class="d-flex justify-content-around col-12" v-if="this.user.image">
         <div class="preview text-center" v-if="this.user.image">
@@ -25,14 +24,14 @@
       </div>
     
       <div class="input-button text-center col mt-3 ">
-        <label for="file" class="btn-floating btn-lg lighten-1 mt-0 ">
+        <label for="userFile" class="btn-floating btn-lg lighten-1 mt-0 ">
           <div class="btn blue-gradient btn-sm">
             <span><i class="fas fa-cloud-upload-alt mr-2" aria-hidden="true"></i>画像を選択してください</span>
           </div>
         </label>
       </div>
 
-      <input  type="file" id="file" ref="file" name="image"  value="" class="d-none" @change="setImage"/>
+      <input  type="file" id="userFile" ref="file" name="image"  value="" class="d-none" @change="setImage"/>
 
     </div>
   </div>

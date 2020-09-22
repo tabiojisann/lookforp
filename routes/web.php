@@ -50,7 +50,14 @@ Route::get('/users', 'UserController@search')->name('users.search')->middleware(
 
 
 Route::prefix('footer')->name('footer.')->group(function() {
-  Route::get('/contact', 'FooterController@contact')->name('contact');
+  // Route::get('/contact', 'FooterController@contact')->name('contact');
+});
+
+Route::prefix('contact')->name('contact.')->group(function() {
+  Route::get('/index', 'ContactController@index')->name('index');
+  Route::post('/confirm', 'ContactController@confirm')->name('confirm');
+  Route::post('/send', 'ContactController@send')->name('send');
+  Route::get('/complete', 'ContactController@complete')->name('complete');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

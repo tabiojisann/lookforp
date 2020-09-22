@@ -6,5 +6,4 @@ $(function () {
       $('.navbar-collapse').addClass('show');
     }
   });
-})
-
+});

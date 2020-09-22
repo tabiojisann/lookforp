@@ -35,7 +35,7 @@
               </div>
             </div>
           </a>
-        <!-- Desktop　専用 -->
+        <!-- Desktop 専用 -->
 
         <!-- Mobile 専用-->
           <div class="Desk border">

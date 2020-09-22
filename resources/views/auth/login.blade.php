@@ -34,16 +34,16 @@
                 <div class="form-group pb-3">
                   <label for="password">パスワード</label>
                   <input type="password" id="password" name="password" class="form-control" required>
-                  <a href="#" class="dark-grey-text font-weight-bold"> 
-                    <p class="text-center mt-2">パスワードをお忘れですか？？</p>
-
-                  </a>
                 </div>
+
+                <a href="{{ route('password.request') }}" class="dark-grey-text font-weight-bold"> 
+                  <p class="text-center">パスワードをお忘れですか？？</p>
+                </a>
 
                 <input type="hidden" name="remember" id="remember" value="on">
 
                 <div class="text-center mb-4">
-                  <button type="submit" class="btn btn-danger btn-block z-depth-2">ログイン</button>
+                  <button type="submit" class="btn green text-white btn-block z-depth-2">ログイン</button>
                 </div>
               </form>
 

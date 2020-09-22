@@ -37,7 +37,7 @@
             <a href="#!" class="text-dark">ヘルプ</a>
           </li>
           <li class="my-2">
-            <a href="/footer/contact" class="text-dark">お問い合わせ</a>
+            <a href="{{ route('contact.index') }}" class="text-dark">お問い合わせ</a>
           </li>
         </ul>
 
