@@ -60,5 +60,5 @@ Route::prefix('contact')->name('contact.')->group(function() {
   Route::get('/complete', 'ContactController@complete')->name('complete');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 

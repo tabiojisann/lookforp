@@ -10,7 +10,7 @@
       <div class="col">
 
         <div class="container col text-center mt-5">
-          <h5>⬇︎ 質問等ありましたらこちらにお願いします ⬇︎</h5>
+          <h5>⬇︎ 質問はこちらから ⬇︎</h5>
         </div>
 
         <div class="container bg-light p-4 my-4">

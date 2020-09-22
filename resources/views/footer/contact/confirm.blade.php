@@ -3,7 +3,7 @@
 @section('title', 'お問い合わせ確認画面')
 
 @section('content')
-  @include('nav')
+  
     <form action="{{ route('contact.send', ['contact' => $contact]) }}" method="POST">
       @csrf
       <div class="container">
@@ -33,7 +33,7 @@
               <br>
 
               <div>
-                <b>お問い合わせ内容:</b>
+                <b>お問い合わせ内容</b>
                 <textarea name="" id="" class="form-control" cols="30" rows="10">{{ $contact->text }}</textarea>
               </div>
 
@@ -42,8 +42,8 @@
               <br>
 
               <div class="text-center">
-                <input type="reset" value="キャンセル" class="btn btn-dark text-white" onclick='window.history.back(-1);'>
                 <input type="submit"  class="btn btn-primary" value="送信">
+                <input type="reset" value="キャンセル" class="btn btn-dark text-white" onclick='window.history.back(-1);'>
               </div>
 
             </div>
@@ -53,6 +53,5 @@
       </div>
     </form>
 
-  @include('footer')
   
 @endsection
