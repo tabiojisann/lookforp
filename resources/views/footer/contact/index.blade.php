@@ -10,7 +10,7 @@
       <div class="col">
 
         <div class="container col text-center mt-5">
-          <h5>⬇︎ 質問はこちらから ⬇︎</h5>
+          <h3>お問い合わせはこちら</h3>
         </div>
 
         <div class="container bg-light p-4 my-4">
@@ -19,7 +19,8 @@
             @csrf
 
             <div class="form-group">
-              <label>お名前(必須)</label>
+              <label>お名前</label>
+              <label class="red text-white px-2">必須</label>
               @error('name')
                 <small class="text-danger">{{ $message }}</small>
               @enderror
@@ -28,7 +29,8 @@
            
 
             <div class="form-group">
-              <label>メールアドレス(必須)</label>
+              <label>メールアドレス</label>
+              <label class="red text-white px-2">必須</label>
               @error('email')
                 <small class="text-danger">{{ $message }}</small>
               @enderror
@@ -37,7 +39,8 @@
            
           
             <div class="form-group">
-              <label>お問い合わせ内容(必須)</label>
+              <label>お問い合わせ内容</label>
+              <label class="red text-white px-2">必須</label>
               @error('text')
                 <small class="text-danger">{{ $message }}</small>
               @enderror

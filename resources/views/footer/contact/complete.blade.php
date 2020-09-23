@@ -3,7 +3,6 @@
 @section('title', 'お問い合わせ確認画面')
 
 @section('content')
-  @include('nav')
 
     <div class="container my-5">
       <div class="row">

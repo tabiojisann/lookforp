@@ -30,32 +30,33 @@
                 <input type="text" id="name" name="name" v-model="name" class="form-control" value="{{ old('name') }}" required/>
               </div> -->
 
-
+              @error('name')
+                <small class="text-danger">{{ $message }}</small>
+              @enderror
               <name-validate>
               </name-validate> 
-              @error('name')
-                <span class="text-danger">{{ $message }}</span>
+             
+              @error('email')
+                <small class="text-danger">{{ $message }}</small>
               @enderror
-  
               <email-validate>
               </email-validate>
-              @error('email')
-                <span class="text-danger">{{ $message }}</span>
+             
+              @error('password')
+                <small class="text-danger">{{ $message }}</small>
               @enderror
-
               <password-validate>
               </password-validate>
-              @error('password')
-                <span class="text-danger">{{ $message }}</span>
-              @enderror
+             
 
               <div class="form-group">
                 <label for="password_confirmation" class="font-weight-light">パスワード(確認)</label>
+                @error('password')
+                  <small class="text-danger">{{ $message }}</small>
+                @enderror
                 <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required>
               </div>
-              @error('password')
-                <span class="text-danger">{{ $message }}</span>
-              @enderror
+              
 
        
               <!-- <div class="form-group">
@@ -74,7 +75,22 @@
                 <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required>
 
               </div> -->
+              <div class="text-center">
+                <small>
+                  <i class="fas fa-exclamation-triangle yellow-text"></i>
+                  <a href="{{ route('footer.terms') }}">利用規約</a>
+                  をご確認の上で登録してください
+                </small>
 
+                <br>
+
+                <small>登録が完了した時点で
+                  <a href="{{ route('footer.terms') }}">利用規約</a>
+                  に同意したものとみなします
+                </small>
+              </div>
+
+              
               <div class="text-center py-4 mt-3">
                 <button class="btn  btn-info" type="submit">登録</button>
               </div>

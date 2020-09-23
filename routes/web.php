@@ -50,7 +50,9 @@ Route::get('/users', 'UserController@search')->name('users.search')->middleware(
 
 
 Route::prefix('footer')->name('footer.')->group(function() {
-  // Route::get('/contact', 'FooterController@contact')->name('contact');
+  Route::get('/terms', 'FooterController@terms')->name('terms');
+  Route::get('/help', 'FooterController@help')->name('help');
+  Route::get('/privacy', 'FooterController@privacy')->name('privacy');
 });
 
 Route::prefix('contact')->name('contact.')->group(function() {

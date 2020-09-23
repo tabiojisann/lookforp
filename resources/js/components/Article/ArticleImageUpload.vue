@@ -3,7 +3,7 @@
   <div class="image-uploader">
     <div class="row">
 
-      <div class="container border border-dark">
+      <div class="container border col-8 offset-2">
         <strong>イメージ画像</strong>
         <div class="d-flex justify-content-center col-12 p-4"> 
           <div class="preview text-center" v-if="!this.article.image">

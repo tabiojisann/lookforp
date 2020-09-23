@@ -28,13 +28,13 @@
 
         <ul class="list-unstyled">
           <li class="my-2 ">
-            <a href="" class="text-dark">利用規約</a>
+            <a href="{{ route('footer.terms') }}" class="text-dark">利用規約</a>
           </li>
           <li  class="my-2">
-            <a href="" class="text-dark">プライバシー</a>
+            <a href="{{ route('footer.privacy') }}" class="text-dark">プライバシー</a>
           </li>
           <li class="my-2">
-            <a href="#!" class="text-dark">ヘルプ</a>
+            <a href="{{ route('footer.help') }}" class="text-dark">ヘルプ</a>
           </li>
           <li class="my-2">
             <a href="{{ route('contact.index') }}" class="text-dark">お問い合わせ</a>
