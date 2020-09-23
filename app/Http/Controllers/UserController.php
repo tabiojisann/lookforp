@@ -178,6 +178,7 @@ class UserController extends Controller
         //     $user->image = Storage::disk('s3')->url($storePath);
         // };
 
+
         $file = $request->file('image');
 
         if(isset($file)) {

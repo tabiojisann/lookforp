@@ -28,7 +28,7 @@ class UserRequest extends FormRequest
          
         return [
             'name'       => ['max:12'],
-            'image'      => ['nullable', 'file', 'image', 'mimes:jpeg,png,jpg', 'max:2048'],
+            'image'      => ['nullable', 'file', 'image', 'mimes:jpeg,png,jpg','max:1000'],
             'sex'        => ['string', 'in:男性,女性', 'nullable'],
             'birthday'   => ['date_format:"Y-m-d"', 'nullable'],
             'age'        => ['integer', 'digits_between:1,3', 'nullable'],

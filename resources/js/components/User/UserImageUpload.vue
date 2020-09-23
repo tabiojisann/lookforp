@@ -4,7 +4,7 @@
       
       <div class="d-flex justify-content-center col-12">
         <div class="preview text-center" v-if="!this.user.image">
-          <img :src="this.data.image" alt="" class="img mt-1">
+          <img :src="this.data.image" alt="" class="img mt-1 ">
           <span class="text-danger h5" v-if="this.data.image" @click="resetFile()">リセット</span>
         </div>
       </div>
