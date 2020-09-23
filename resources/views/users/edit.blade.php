@@ -24,9 +24,9 @@
           
         <!-- Desktop 専用-->
           @error('image')
-            <small class="text-danger Mobile">{{ $message }}</small>
+            <small class="text-danger">{{ $message }}</small>
           @enderror
-          <a type="button" class="text-white col-12 col-md-10 Mobile" data-toggle="modal" data-target="#centralModalMd">
+          <a type="button" class="text-white col-12 col-md-10" data-toggle="modal" data-target="#centralModalMd">
             <div class="view overlay">
               <img class="card-img-top" src="{{ $user->image ?: asset('logo/NoImage.jpg') }}" width="300" height="300" alt="photo">
               <div class="mask flex-center rgba-stylish-light">
@@ -38,7 +38,7 @@
         <!-- Desktop 専用 -->
 
         <!-- Mobile 専用-->
-          <div class="Desk border">
+          <!-- <div class="Desk border">
             <form action="{{ route('users.imageUpdate', ['user' => $user]) }}" method="POST" enctype="multipart/form-data">
               @method('PATCH')
               @csrf
@@ -55,7 +55,7 @@
                 <button type="submit" class="btn btn-default text-white btn-md">アイコンを変更</button>
               </div>
             </form> 
-          </div>
+          </div> -->
         <!-- Mobile 専用-->
 
           <div class=" col-md-10 mt-2">

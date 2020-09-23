@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use cebe\markdown\Markdown as Markdown;
 
 class Article extends Model
@@ -23,7 +24,10 @@ class Article extends Model
         'updated_at',
     ];
       
-    
+    public function image(): hasOne
+    {
+        return $this->hasOne('App\Image');
+    }
 
     public function user(): BelongsTo
     {
