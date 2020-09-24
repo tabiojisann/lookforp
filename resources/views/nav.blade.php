@@ -65,7 +65,7 @@
             </div>
 
             <div class="d-flex justify-content-center p-2">
-              <button type="submit" class="btn winter-neva-gradient pink-text">検索</button>
+              <button type="submit" class="btn young-passion-gradient white-text">検索</button>
             </div>
           </form>
 

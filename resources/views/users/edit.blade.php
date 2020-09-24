@@ -390,7 +390,7 @@
         </div>
       </div>
     </div>
-  @include('footer')
+  @include('footer.sub')
 @endsection
 
 

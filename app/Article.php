@@ -5,11 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Kyslik\ColumnSortable\Sortable;
 use cebe\markdown\Markdown as Markdown;
 
 class Article extends Model
 {
+
 
     protected $fillable = [
         'title',
@@ -17,17 +18,13 @@ class Article extends Model
         'position',
         'style',
         'image',
+        'stock',
     ];
 
     protected $dates = [
         'created_at',
         'updated_at',
     ];
-      
-    public function image(): hasOne
-    {
-        return $this->hasOne('App\Image');
-    }
 
     public function user(): BelongsTo
     {
@@ -48,6 +45,7 @@ class Article extends Model
 
     public function getCountKeepsAttribute(): int
     {
+        
         return $this->keeps->count();
     }
 

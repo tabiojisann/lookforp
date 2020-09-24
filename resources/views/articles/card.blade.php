@@ -1,4 +1,4 @@
-<div class="card mt-5 mx-2 article_card">
+<div class="card mb-5 mt-1 mx-2 article_card">
 
   <div class="m-1 d-flex justify-content-between ">
     <div class="d-inline">
@@ -56,6 +56,7 @@
         </div>
       </div>
       <!-- Modal -->
+      
 
     @endif
   </div>
@@ -79,7 +80,6 @@
     <div class="row">            
     <div class="col-12">
       <h3 class="card-title">{{ $article->title }}</h3>
-
       <table class="table table-bordered col col-lg-8">
         <tbody class="">
 
@@ -115,7 +115,6 @@
       <a href="{{ route('articles.show', ['article' => $article]) }}" class="btn btn-mdb-color px-4">
         <i class="fas fa-align-justify text-info">   </i>  詳細
       </a>
-
       <p class="float-right mt-4 text-muted">{{ $article->created_at->format('Y年 n月 j日 / H:i') }}</p>
     </div>
     </div> 

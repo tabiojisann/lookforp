@@ -15,5 +15,5 @@
     </div>
 
     @include('articles.showCard')
-  @include('footer')
+  @include('footer.main')
 @endsection

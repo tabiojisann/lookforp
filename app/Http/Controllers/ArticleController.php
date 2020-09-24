@@ -23,14 +23,24 @@ class ArticleController extends Controller
         $this->authorizeResource(Article::class, 'article');
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $user     = Auth::user();
-        $articles = Article::all()->sortByDesc('created_at')
-                    ->load('user');
-
+   
+        $articles = Article::orderBy('created_at', 'DESC')->paginate(5);
+        
         return view('articles.index', ['articles' => $articles, 'user' => $user]);
     }
+
+    public function popular(Article $article)
+    {
+        $user     = Auth::user();
+
+        $articles = Article::orderBy('stock', 'DESC')->paginate(5);
+
+        return view('articles.popular', ['articles' => $articles, 'user' => $user]);
+    }
+
 
     public function search(Request $request)
     {
@@ -65,7 +75,7 @@ class ArticleController extends Controller
             $query->where('position', 'その他');
         } 
 
-        $articles = $query->get()
+        $articles = $query->get()->sortByDesc('created_at')->sortByDesc('keeps')
                     ->load('user');
 
         return view('articles.search', [
@@ -228,15 +238,6 @@ class ArticleController extends Controller
         return redirect()->route('articles.index');
     }
 
-    public function imageDestroy(Article $article)
-    {
-        
-        $disk = Storage::disk('s3');
-        $disk->delete($article->image);
-
-        return redirect()->route('articles.edit', ['article', $article]);
-    }
-
     public function show(Article $article, User $user)
     {
         $user     = Auth::user();
@@ -254,9 +255,14 @@ class ArticleController extends Controller
         $article->keeps()->detach($request->user()->id);
         $article->keeps()->attach($request->user()->id);
 
+        $article->stock = $article->count_keeps;
+
+        $article->save();
+
         return [
             'id' => $article->id,
             'countKeeps' => $article->count_keeps,
+            'stock' => $article->stock,
         ];
     }
 
@@ -264,11 +270,18 @@ class ArticleController extends Controller
     {
         $article->keeps()->detach($request->user()->id);
 
+        $article->stock = $article->count_keeps;
+
+        $article->save();
+
         return [
             'id' => $article->id,
             'countKeeps' => $article->count_keeps,
+            'stock' => $article->stock,
         ];
     }
+
+    
 }
 
 

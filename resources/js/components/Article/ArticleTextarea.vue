@@ -1,9 +1,10 @@
 <template>
-  
-  <div class="py-2" style="height: 50vh;"> 
-    <mavon-editor v-model="text" name="text" language="ja" placeholder="2000文字以内" class="h-100" @change="changeText" />
+  <div>
+    <div class="py-2" style="height: 50vh;"> 
+      <mavon-editor v-model="text" name="text" language="ja" placeholder="2000文字以内" class="h-100" @change="changeText" />
+    </div>
+    <textarea name="text" v-model="text" class="form-control z-depth-2 d-none" rows="16" placeholder="2000文字まで打てます"></textarea>
   </div>
-   
 </template>
 
 <script>
@@ -20,7 +21,7 @@ export default {
 
     markBody: {
       type: String,
-    }
+    },
   },
 
   data() {

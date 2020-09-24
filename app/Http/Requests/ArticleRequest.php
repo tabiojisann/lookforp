@@ -29,6 +29,7 @@ class ArticleRequest extends FormRequest
             'text'     => ['required', 'max:2000'],
             'position' => ['required', 'in:ボケ,ツッコミ,作家,その他'],
             'style'    => ['required', 'in:漫才,コント,その他'],
+            'stock'    => ['nullable'],
         ];
     }
 
@@ -40,6 +41,7 @@ class ArticleRequest extends FormRequest
             'image' => '画像',
             'position' => '募集ポジション',
             'style' => '募集スタイル',
+            'stock'  => 'ストック',
         ];
     }
 }

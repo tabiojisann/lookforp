@@ -20,5 +20,5 @@
   </style>
 
 
-  @include('footer')
+  @include('footer.main')
 @endsection

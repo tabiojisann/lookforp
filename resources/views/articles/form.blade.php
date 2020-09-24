@@ -20,8 +20,6 @@
   :article="{{json_encode($article->text)}}"
   :mark-body="{{json_encode($article->mark_body)}}">
   </article-textarea>
-
-  <textarea name="text" v-model="text" class="form-control z-depth-2 d-none" rows="16" placeholder="2000文字まで打てます"></textarea>
 </div>
 
 

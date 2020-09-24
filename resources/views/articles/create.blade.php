@@ -18,17 +18,7 @@
       </div>
     </div>
 
-<footer>
-  <div class="border-top text-center">
-    <div class="my-3">
-      <a class="" href="/">  
-        <img src="{{ asset('logo/lookforp.png') }}" width="200" border="0" class=" horizontal">
-      </a>
-    </div>
-    <div class="footer-copyright bg-light text-center py-3">Copyright:
-      <a href="http://www.lookforp.com/" class="text-white"> © 2020 lookforp inc.</a>
-    </div>
-  </div>
-</footer>
+  @include('footer.sub')
+
    
 @endsection

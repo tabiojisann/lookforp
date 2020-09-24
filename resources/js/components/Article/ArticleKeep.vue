@@ -1,5 +1,10 @@
 <template>
     <div class="d-inline">
+
+      <div v-show="countKeeps" class="text-right">
+        <h6 class="text-muted"><span class="text-warning font-weight-bold">{{ countKeeps }}</span>人のユーザーが気になっています</h6>
+      </div>
+
       <button class="btn btn-success px-2" type="button" 
               :class="{'grey lighten-2':this.isKeep}"
               @click="clickButton">
@@ -7,7 +12,6 @@
           :class="keepIcon">
         </i>気になる
       </button>
-      <!-- {{ countKeeps }} -->
     </div>
    
 </template>
@@ -30,6 +34,11 @@ export default {
     endpoint: {
       type: String,
     },
+    stock: {
+      type: Number,
+      default: 0,
+    }
+   
   },
 
   data() {
@@ -37,6 +46,8 @@ export default {
       isKeep: this.initialIsKeep,
       keeping: false,
       countKeeps: this.initialCountKeeps,
+
+
     }
   },
 

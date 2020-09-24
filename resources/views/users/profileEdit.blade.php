@@ -176,6 +176,6 @@
       </div>
       
   </form> 
-  @include('footer')
+  @include('footer.main')
 @endsection
 

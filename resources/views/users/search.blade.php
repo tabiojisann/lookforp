@@ -5,7 +5,6 @@
 @section('content')
   @include('nav')
 
-  @include('articles.tabs', ['hasArticles' => false, 'hasUsers' => true, 'hasKeeps' => false])
 
 
   <div class="row cloudy-knoxville-gradient">
@@ -58,11 +57,12 @@
       </div>
     </div>
     
-    <div class="container col-12 col-lg-6 px-5 my-3 text-center animated fadeInRight">
+    <div class="container col-12 col-lg-6 px-5 my-3 text-center">
       @if(!empty($sex || $keyword_birth || $keyword_back || $age_upper || $age_lower) && $age_lower >= 0)
         @if($users->count())
+        <h5 class="my-4"><span class="red-text font-weight-bold">{{ $users->count() }}</span>件ヒットしました</h5>
           @foreach($users as $user)
-          <a href="{{ route('users.show', ['user' => $user]) }}" class="d-block animated fadeIn slow">
+          <a href="{{ route('users.show', ['user' => $user]) }}" class="d-block animated animated fadeInRight">
             
             <table class="table table-bordered Mobile">
               <thead>
@@ -110,7 +110,9 @@
   
   </div>
 
-  @include('footer')
+  @include('footer.sub')
+
+  
 @endsection
 
 

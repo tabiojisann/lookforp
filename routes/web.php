@@ -23,7 +23,6 @@ Route::resource('/users', 'UserController')->only(['show', 'edit', 'update', 'de
 Route::prefix('articles')->name('articles.')->group(function () {
   Route::put('/{article}/keep', 'ArticleController@keep')->name('keep')->middleware('auth');
   Route::delete('/{article}/keep', 'ArticleController@unkeep')->name('unkeep')->middleware('auth');
-  Route::delete('/{article}/imageDestroy', 'ArticleController@imageDestroy')->name('imageDestroy')->middleware('auth');
 });
 
 Route::prefix('users')->name('users.')->group(function() {
@@ -45,8 +44,11 @@ Route::post('/confirm', 'ArticleController@send')->name('articles.send')->middle
 Route::get('/confirEdit', 'ArticleController@confirmEdit')->name('articles.confirmEdit')->middleware('auth');
 Route::patch('/confirmEdit', 'ArticleController@sendPatch')->name('articles.sendPatch')->middleware('auth');
 
-Route::get('/articles', 'ArticleController@search')->name('articles.search')->middleware('auth');
-Route::get('/users', 'UserController@search')->name('users.search')->middleware('auth');
+
+Route::get('search/articles', 'ArticleController@search')->name('articles.search')->middleware('auth');
+Route::get('search/users', 'UserController@search')->name('users.search')->middleware('auth');
+
+Route::get('/popular', 'ArticleController@popular')->name('articles.popular');
 
 
 Route::prefix('footer')->name('footer.')->group(function() {

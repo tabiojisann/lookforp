@@ -21,6 +21,8 @@ class CreateArticlesTable extends Migration
             $table->string('position');
             $table->string('style');
 
+            $table->integer('stock')->nullable();
+
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
