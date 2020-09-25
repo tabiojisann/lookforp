@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+Auth::routes(); 
 Route::get('/', 'ArticleController@index')->name('articles.index');
 
 Route::resource('/articles', 'ArticleController')->except(['index', 'show'])->middleware('auth');
