@@ -24,12 +24,11 @@
           @foreach($articles as $article)
             @include('articles.card')
           @endforeach
-
         @else
-          <p class="text-center animated fadeInRight">条件に合致する募集要綱が見つかりませんでした</p>
+          <p class="mt-5 text-center animated fadeInRight">条件に合致する募集要綱が見つかりませんでした</p>
         @endif
       @else
-        <p class="text-center animated fadeInRight">条件を最低1項目入力してください</p>
+        <p class="mt-5 text-center animated fadeInRight">条件を最低1項目入力してください</p>
       @endif
     </div>
   </div>  

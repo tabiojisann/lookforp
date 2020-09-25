@@ -109,6 +109,12 @@ class User extends Authenticatable
         return $this->parse();
     }
 
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new PasswordResetNotification($token, new BareMail()));
+    }
+
+    
 }
 
 

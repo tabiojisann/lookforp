@@ -45,7 +45,7 @@ Route::get('/confirEdit', 'ArticleController@confirmEdit')->name('articles.confi
 Route::patch('/confirmEdit', 'ArticleController@sendPatch')->name('articles.sendPatch')->middleware('auth');
 
 
-Route::get('search/articles', 'ArticleController@search')->name('articles.search')->middleware('auth');
+Route::get('search/articles', 'ArticleController@search')->name('articles.search');
 Route::get('search/users', 'UserController@search')->name('users.search')->middleware('auth');
 
 Route::get('/popular', 'ArticleController@popular')->name('articles.popular');

@@ -20,7 +20,7 @@
           <div class="">
             <span class="font-weight-bold">{{ $articles->lastItem() }}</span>
             <span>/</span>
-            <span>{{ $articles->total() }}件の募集</span>
+            <span>{{ $articles->total() }}</span>
           </div>
 
           @include('articles.tabs', ['hasNew' => true, 'hasPopular' => false])
@@ -49,7 +49,7 @@
         <div class="mt-5">
           @include('paginate')
         </div>
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-around">
           <div class="">
             <span class="font-weight-bold">{{ $articles->lastItem() }}</span>
             <span>/</span>

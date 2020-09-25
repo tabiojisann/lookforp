@@ -60,6 +60,6 @@
     </div>
   </div>
 
-  @include('footer.main')
+  @include('footer.sub')
   
 @endsection

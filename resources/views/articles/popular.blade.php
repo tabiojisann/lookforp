@@ -18,9 +18,8 @@
         <div class="">
           <span class="font-weight-bold">{{ $articles->lastItem() }}</span>
           <span>/</span>
-          <span>{{ $articles->total() }}件の募集</span>
+          <span>{{ $articles->total() }}</span>
         </div>
-
         @include('articles.tabs', ['hasNew' => false, 'hasPopular' => true])
       </div>
       @foreach($articles as $article)
