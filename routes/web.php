@@ -17,7 +17,7 @@ Route::get('/', 'ArticleController@index')->name('articles.index');
 
 Route::resource('/articles', 'ArticleController')->except(['index', 'show'])->middleware('auth');
 Route::resource('/articles', 'ArticleController')->only(['show']);
-Route::resource('/users', 'UserController')->only(['show', 'edit', 'update', 'destroy']);
+Route::resource('/users', 'UserController')->only(['show', 'edit', 'update', 'destroy'])->middleware('auth');
 
 
 Route::prefix('articles')->name('articles.')->group(function () {
@@ -46,10 +46,9 @@ Route::patch('/confirmEdit', 'ArticleController@sendPatch')->name('articles.send
 
 
 Route::get('search/articles', 'ArticleController@search')->name('articles.search');
-Route::get('search/users', 'UserController@search')->name('users.search')->middleware('auth');
+Route::get('search/users', 'UserController@search')->name('users.search');
 
 Route::get('/popular', 'ArticleController@popular')->name('articles.popular');
-
 
 Route::prefix('footer')->name('footer.')->group(function() {
   Route::get('/terms', 'FooterController@terms')->name('terms');

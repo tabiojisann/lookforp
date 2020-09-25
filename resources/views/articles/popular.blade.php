@@ -6,13 +6,11 @@
   @include('nav')
   @include('top')
 
-
-
   <div class="row blue lighten-4">
 
   @guest
   <!-- 記事一覧 -->
-  <div class="col-10 offset-1 col-md-8 offset-md-2 p-3">
+    <div class="col-10 offset-1 col-md-8 offset-md-2 p-3">
 
       <div class="d-flex justify-content-between">
         <div class="">
@@ -26,6 +24,9 @@
         @include('articles.card')
       @endforeach
 
+    </div>
+
+    <div class="col-12">
       @include('paginate')
     </div>
 

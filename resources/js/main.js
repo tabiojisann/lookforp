@@ -6,4 +6,9 @@ $(function () {
       $('.navbar-collapse').addClass('show');
     }
   });
+
+  $('#keySearch').click( function() {
+    $('.keySearch').toggleClass('d-none');
+  });
+
 });

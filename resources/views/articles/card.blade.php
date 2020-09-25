@@ -1,4 +1,4 @@
-<div class="card mb-5 mt-1 mx-2 article_card">
+<div class="card mb-5 mt-1 mx-2 article_card Mobile">
 
   <div class="m-1 d-flex justify-content-between ">
     <div class="d-inline">
@@ -78,45 +78,88 @@
 
   <div class="card-body">
     <div class="row">            
+      <div class="col-12">
+        <h3 class="card-title">{{ $article->title }}</h3>
+        <table class="table table-bordered col col-lg-8">
+          <tbody class="">
+
+            <tr>
+              <th class="blue-grey lighten-5 text-left ">
+                <i class="fas fa-map-marker-alt text-info"></i>
+                  ポジション
+              </th>
+              <th style="width:50%" class="text-left">{{ $article->position }}</th>
+            </tr>
+
+            <tr>
+              <th class="blue-grey lighten-5 text-left">
+                <i class="fas fa-briefcase text-default"></i>
+                  スタイル
+              </th>
+              <th style="width:50%" class="text-left">{{ $article->style }}</th>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <p class="text-muted indexText">{{ $article->text }}</p>
+
+        <article-keep
+        :initial-is-keep='@json($article->isKeep(Auth::user()))'
+        :initial-count-keeps='@json($article->count_keeps)'
+        :authorized='@json(Auth::check())'
+        endpoint="{{ route('articles.keep', ['article' => $article]) }}"
+        >
+        </article-keep>
+
+        <a href="{{ route('articles.show', ['article' => $article]) }}" class="btn btn-mdb-color px-4">
+          <i class="fas fa-align-justify text-info"></i>  詳細
+        </a>
+        <p class="float-right mt-4 text-muted">{{ $article->created_at->format('Y年 n月 j日 / H:i') }}</p>
+      </div>
+    </div> 
+  </div>
+</div>
+
+<!-- Desktop -->
+
+<!-- Mobile -->
+
+<div class="container Desk">
+  <div class="row">
     <div class="col-12">
-      <h3 class="card-title">{{ $article->title }}</h3>
-      <table class="table table-bordered col col-lg-8">
-        <tbody class="">
+      <div class="bg-white border mb-3">
 
-          <tr>
-            <th class="blue-grey lighten-5 text-left ">
-              <i class="fas fa-map-marker-alt text-info"></i>
-                ポジション
-            </th>
-            <th style="width:50%" class="text-left">{{ $article->position }}</th>
-          </tr>
 
-          <tr>
-            <th class="blue-grey lighten-5 text-left">
-              <i class="fas fa-briefcase text-default"></i>
-                スタイル
-            </th>
-            <th style="width:50%" class="text-left">{{ $article->style }}</th>
-          </tr>
+        <a href="{{ route('users.show', ['user' => $article->user]) }}">
+          <img src="{{ $article->user->image ?: asset('logo/user.jpg') }}" class="d-inline rounded-circle" width="25" height="25" alt="">
+          @if(Auth::id() === $article->user_id)
+            <b class="text-danger">{{ $article->user->name}}</b>
+          @else
+            <b class="text-info">{{ $article->user->name}}</b>
+          @endif
+        </a>
 
-        </tbody>
-      </table>
+        <h6 class="ml-4">{{ $article->title }}</h6>
+        <small class="d-block text-muted">ポジション：{{ $article->position }}</small>
+        <small class="d-block text-muted">ポジション：{{ $article->style }}</small>
 
-      <p class="text-muted indexText">{{ $article->text }}</p>
+          <article-keep
+            :initial-is-keep='@json($article->isKeep(Auth::user()))'
+            :initial-count-keeps='@json($article->count_keeps)'
+            :authorized='@json(Auth::check())'
+            endpoint="{{ route('articles.keep', ['article' => $article]) }}"
+            >
+          </article-keep>
 
-      <article-keep
-      :initial-is-keep='@json($article->isKeep(Auth::user()))'
-      :initial-count-keeps='@json($article->count_keeps)'
-      :authorized='@json(Auth::check())'
-      endpoint="{{ route('articles.keep', ['article' => $article]) }}"
-      >
-      </article-keep>
-
-      <a href="{{ route('articles.show', ['article' => $article]) }}" class="btn btn-mdb-color px-4">
-        <i class="fas fa-align-justify text-info">   </i>  詳細
-      </a>
-      <p class="float-right mt-4 text-muted">{{ $article->created_at->format('Y年 n月 j日 / H:i') }}</p>
-    </div>
+        <!-- <a href="{{ route('articles.show', ['article' => $article]) }}">
+          <small class="text-muted ">詳細</small>
+        </a> -->
+        <a href="{{ route('articles.show', ['article' => $article]) }}" class="btn btn-sm btn-mdb-color">
+          <i class="fas fa-align-justify text-info"></i>  詳細
+        </a>
+        <small class="d-block mr-1 text-muted">{{ $article->created_at->format('Y年 n月 j日 / H:i') }}</small>
+      </div>
     </div> 
   </div>
 </div>

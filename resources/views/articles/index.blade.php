@@ -22,16 +22,17 @@
             <span>/</span>
             <span>{{ $articles->total() }}</span>
           </div>
-
           @include('articles.tabs', ['hasNew' => true, 'hasPopular' => false])
         </div>
         @foreach($articles as $article)
           @include('articles.card')
         @endforeach
+      </div>
 
+      <div class="col-12">
         @include('paginate')
       </div>
-      
+
     @endguest
 
     @auth
@@ -61,8 +62,9 @@
         @foreach($articles as $article)
           @include('articles.card')
         @endforeach
+     
         @include('paginate')
-
+    
       </div>
       
     @endauth

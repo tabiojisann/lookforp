@@ -36,9 +36,13 @@
                   <input type="password" id="password" name="password" class="form-control" required>
                 </div>
 
-                <a href="{{ route('password.request') }}" class="dark-grey-text font-weight-bold"> 
-                  <p class="text-center">パスワードをお忘れですか？？</p>
+                <a href="{{ route('password.request') }}"> 
+                  <small class="dark-grey-text font-weight-bold d-flex justify-content-center">
+                    パスワードをお忘れですか？
+                  </small>
                 </a>
+
+                <br>
 
                 <input type="hidden" name="remember" id="remember" value="on">
 
@@ -47,11 +51,13 @@
                 </div>
               </form>
 
-              <p class="font-small grey-text d-flex justify-content-center">
-                <a href="{{ route('register') }}" class="dark-grey-text font-weight-bold ml-1"> 
-                  アカウントをお持ちでない方はこちら
+
+                <a href="{{ route('register') }}"> 
+                  <small class="dark-grey-text font-weight-bold d-flex justify-content-center">
+                    新規登録はこちら
+                  </small>
                 </a>
-              </p>
+
             </div>
 
           </div>
