@@ -41,34 +41,6 @@
             </form>
           </li>
 
-
-          <form action="{{ route('articles.search') }}" method="GET">
-            <input class="form-control mt-3 py-1" type="text" name="keyword" placeholder="キーワードで検索" aria-label="Search" value="{{ $keyword ?? old('keyword') }}">
-            <div class="">
-              <label for="style" class="text-muted">募集スタイル</label>
-              <select name="style" id="styleMobile" class="browser-default custom-select" value="" id="">
-                <option value="" class="d-none">選択してください</option>
-                <option value="1">漫才</option>
-                <option value="2">コント</option>
-                <option value="3">その他</option>
-              </select>
-            </div>
-
-            <div class="">
-              <label for="position" class="text-muted">募集ポジション</label>
-              <select name="position" id="positionMobile" class="browser-default custom-select p-2" value="" id="">
-                <option value="" class="d-none">選択してください</option>
-                <option value="1" >ボケ</option>
-                <option value="2">ツッコミ</option>
-                <option value="3">その他</option>
-              </select>
-            </div>
-
-            <div class="d-flex justify-content-center p-2">
-              <button type="submit" class="btn young-passion-gradient white-text">検索</button>
-            </div>
-          </form>
-
         </ul>
         <!-- Links -->
      

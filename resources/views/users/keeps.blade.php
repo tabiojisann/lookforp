@@ -8,7 +8,6 @@
 
   @include('top')
   
-  @include('articles.tabs', ['hasArticles' => false, 'hasUsers' => false, 'hasKeeps' => true])
     @foreach($articles as $article)
       <div class="container green lighten-5" style="max-width: 100%;">
         <div class="row">

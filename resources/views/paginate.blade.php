@@ -4,7 +4,7 @@
     ?>
 
     @if ($articles->lastPage() > 1)
-        <ul class="pagination py-1 d-flex justify-content-center bg-white">
+        <ul class="pagination py-1 d-flex justify-content-center">
             <li class="page-item {{ ($articles->currentPage() == 1) ? ' disabled' : '' }}">
                 <a class="page-link text-muted" href="{{ $articles->url(1) }}"><<</a>
             </li>
@@ -57,7 +57,7 @@
     ?>
 
     @if ($articles->lastPage() > 1)
-        <ul class="pagination py-1 d-flex justify-content-center bg-white">
+        <ul class="pagination py-1 d-flex justify-content-center">
             <li class="page-item {{ ($articles->currentPage() == 1) ? ' disabled' : '' }}">
                 <a class="page-link text-muted" href="{{ $articles->url(1) }}"><<</a>
             </li>

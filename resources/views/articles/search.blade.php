@@ -11,9 +11,8 @@
   
   <div class="row heavy-rain-gradient">
 
-    <div class="card border-light col-md-4 col-lg-3 offset-md-1 my-5 Mobile search">
+
       @include('articles.searchForm') 
-    </div>
 
     <!-- 検索結果 -->
  

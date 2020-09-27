@@ -4,7 +4,7 @@
     <div class="row">
 
       <div class="container bg-white border col-8 offset-2">
-        <lavel>イメージ画像</lavel>
+        <label>イメージ画像</label>
         <label class="bg-light text-dark px-1">任意</label>
         <div class="d-flex justify-content-center col-12 p-4"> 
           <div class="preview text-center" v-if="!this.article.image">

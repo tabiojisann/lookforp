@@ -77,7 +77,7 @@
 @include('flash')
 
 @auth
-  <div class=" morpheus-den-gradient py-5">
+  <!-- <div class=" morpheus-den-gradient py-5">
     <div class="container border my-4">
 
       <nav class="nav nav-pills nav-fill mt-5">
@@ -86,6 +86,23 @@
         <a class="nav-item nav-link text-white bg young-passion-gradient" href="{{ route('articles.create') }}">募集をかける</a>
       </nav>
     </div>
+  </div> -->
+
+  <div class="container col-12 col-md-6 offset-md-3 ">
+    <div class="d-flex justify-content-around">
+      <a href="{{ route('articles.index') }}" class="border-bottom border-warning h6 text-muted">募集一覧</a>
+      <a href="{{ route('articles.create') }}" class="border-bottom border-success h6 text-muted">募集かける</a>
+      <a href="{{ route('users.keep', ['user' => $user]) }}" class="border-bottom border-success h6 text-muted">気になるリスト</a>
+    </div>
   </div>
+  <div class="container col-12 col-md-6 offset-md-3 ">
+    <div class="d-flex justify-content-around">
+      <a href="{{ route('articles.search') }}" class="border-bottom border-warning h6 text-muted">求人を探す</a>
+      <a href="{{ route('users.search') }}" class="border-bottom border-warning h6 text-muted">人を探す</a>
+    </div>
+  </div>
+
+
+  
 @endauth
 

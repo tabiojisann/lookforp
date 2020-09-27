@@ -1,6 +1,6 @@
 @csrf
 
-<div class="form-group">
+<div class="form-group p-4">
   <label>タイトル</label>
   <label class="bg-danger text-white px-1">必須</label>
   @error('title')
@@ -9,7 +9,7 @@
   <input type="text" name="title" class="form-control w-100" placeholder="100文字以内" required value="{{ $article->title ?? old('title') }}">
 </div>
 
-<div class="form-group my-4">
+<div class="form-group my-4 p-4">
   <label>本文</label>
   <label class="bg-danger text-white px-1">必須</label>
   @error('text')

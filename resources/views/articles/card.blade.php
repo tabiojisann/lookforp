@@ -141,16 +141,16 @@
         </a>
 
         <h6 class="ml-4">{{ $article->title }}</h6>
-        <small class="d-block text-muted">ポジション：{{ $article->position }}</small>
-        <small class="d-block text-muted">ポジション：{{ $article->style }}</small>
+        <small class="d-block text-muted ml-4">ポジション：{{ $article->position }}</small>
+        <small class="d-block text-muted ml-4">ポジション：{{ $article->style }}</small>
 
-          <article-keep
-            :initial-is-keep='@json($article->isKeep(Auth::user()))'
-            :initial-count-keeps='@json($article->count_keeps)'
-            :authorized='@json(Auth::check())'
-            endpoint="{{ route('articles.keep', ['article' => $article]) }}"
-            >
-          </article-keep>
+        <article-keep
+          :initial-is-keep='@json($article->isKeep(Auth::user()))'
+          :initial-count-keeps='@json($article->count_keeps)'
+          :authorized='@json(Auth::check())'
+          endpoint="{{ route('articles.keep', ['article' => $article]) }}"
+          >
+        </article-keep>
 
         <!-- <a href="{{ route('articles.show', ['article' => $article]) }}">
           <small class="text-muted ">詳細</small>
