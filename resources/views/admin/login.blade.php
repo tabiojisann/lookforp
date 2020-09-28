@@ -14,16 +14,16 @@
         <section class="form-simple">
           <div class="card">
 
-            <div class="header pt-3 grey lighten-2">
+            <div class="header pt-3 border-bottom">
               <div class="row d-flex justify-content-center">
-                <h3 class="deep-grey-text mt-3 mb-4 pb-1 mx-5">ログイン</h3>
+                <h3 class="deep-grey-text mt-3 mb-4 pb-1 mx-5">ログイン(管理者専用)</h3>
               </div>
             </div>
 
             @include('errors.all')
 
             <div class="card-body mx-4 mt-4">
-              <form method="POST" action="{{ route('login') }}">
+              <form method="POST" action="{{ route('admin.signIn') }}">
                 @csrf
                 <div class="form-group">
                   <label for="email">メールアドレス</label>
@@ -36,33 +36,20 @@
                   <input type="password" id="password" name="password" class="form-control" required>
                 </div>
 
-                <a href="{{ route('password.request') }}"> 
-                  <small class="dark-grey-text font-weight-bold d-flex justify-content-center">
-                    パスワードをお忘れですか？
-                  </small>
-                </a>
-
                 <br>
 
                 <input type="hidden" name="remember" id="remember" value="on">
 
                 <div class="text-center mb-4">
-                  <button type="submit" class="btn green text-white btn-block z-depth-2">ログイン</button>
+                  <button type="submit" class="btn red text-white btn-block z-depth-2">ログイン</button>
                 </div>
               </form>
 
-
-                <a href="{{ route('register') }}"> 
-                  <p class="dark-grey-text font-weight-bold d-flex justify-content-center">
-                    新規登録はこちら
-                  </p>
-                </a>
-
-                <a href="{{ route('admin.login') }}"> 
-                  <small class="red-text d-flex justify-content-center">
-                    管理者専用
-                  </small>
-                </a>
+              <a href="{{ route('login') }}"> 
+                <p class="dark-grey-text font-weight-bold d-flex justify-content-center">
+                  ユーザー用
+                </p>
+              </a>
 
             </div>
 

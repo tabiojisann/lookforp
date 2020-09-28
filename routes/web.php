@@ -63,5 +63,28 @@ Route::prefix('contact')->name('contact.')->group(function() {
   Route::get('/complete', 'ContactController@complete')->name('complete');
 });
 
+
+
+Route::prefix('admin')->name('admin.')->group(function() {
+  Route::get('/login', 'Admin\LoginController@showLoginForm')->name('login');
+  Route::post('/login', 'Admin\LoginController@login')->name('signIn');
+
+  Route::middleware('auth:admin')->group(function() {
+    Route::post('logout', 'Admin\LoginController@logout')->name('logout');
+    Route::get('/home', 'Admin\HomeController@index')->name('home');
+
+    Route::prefix('/contacts')->name('contacts.')->group(function() {
+      Route::get('/index', 'Admin\ContactController@index')->name('index');
+      Route::get('/{contact}/show', 'Admin\ContactController@show')->name('show');
+      Route::get('/search', 'Admin\ContactController@search')->name('search');
+    });
+
+    // Route::prefix('/users')->name('users.')->group(function() {
+    //   Route::get('/index', 'Admin\ContactController@index')->name('index');
+    // });
+
+  });
+});
+
 // Route::get('/home', 'HomeController@index')->name('home');
 

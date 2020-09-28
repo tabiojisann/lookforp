@@ -39,10 +39,8 @@
     @endguest
 
     @auth
-
-
+    
       @include('articles.searchForm')
-
 
     <!-- 記事一覧 -->
       <div class="col-12 col-md-6 offset-md-1">      

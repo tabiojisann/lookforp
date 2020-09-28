@@ -34,7 +34,7 @@
 
               <div>
                 <b>お問い合わせ内容</b>
-                <textarea name="" id="" class="form-control" cols="30" rows="10">{{ $contact->text }}</textarea>
+                <p>{{ $contact->text }}</p>
               </div>
 
               <input type="hidden" name="text" value="{{ $contact->text }}">

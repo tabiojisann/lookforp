@@ -7,8 +7,5 @@ $(function () {
     }
   });
 
-  $('#keySearch').click( function() {
-    $('.keySearch').toggleClass('d-none');
-  });
 
 });
