@@ -79,9 +79,11 @@ Route::prefix('admin')->name('admin.')->group(function() {
       Route::get('/search', 'Admin\ContactController@search')->name('search');
     });
 
-    // Route::prefix('/users')->name('users.')->group(function() {
-    //   Route::get('/index', 'Admin\ContactController@index')->name('index');
-    // });
+    Route::prefix('/users')->name('users.')->group(function() {
+      Route::get('/index', 'Admin\UserController@index')->name('index');
+      Route::get('/{user}show', 'Admin\UserController@show')->name('show');
+      Route::get('/search', 'Admin\UserController@search')->name('search');
+    });
 
   });
 });

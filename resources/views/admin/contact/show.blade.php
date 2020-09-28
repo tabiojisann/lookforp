@@ -9,6 +9,8 @@
   <div class="container border-top">
     <div class="border my-5">
 
+      <a href="{{ route('admin.contacts.index') }}" class="btn-sm btn-indigo text-white">戻る</a>
+
       <div class="d-flex justify-content-around mt-3">
         <h5>名前 : </h5>
         <h5>{{ $contact->name }}</h5>
@@ -34,6 +36,5 @@
 
     </div>
   </div>
-
 
 @endsection

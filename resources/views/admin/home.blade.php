@@ -12,7 +12,7 @@
             <a href="{{ route('admin.contacts.index') }}">
                 <h2 class="my-5">問い合わせ一覧</h2>
             </a>
-            <a href="{{ route('admin.contacts.index') }}">
+            <a href="{{ route('admin.users.index') }}">
                 <h2 class="my-5">ユーザーデータ一覧</h2>
             </a>
         </div>

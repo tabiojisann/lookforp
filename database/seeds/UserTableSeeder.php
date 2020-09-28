@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\User;
 
 class UserTableSeeder extends Seeder
 {
@@ -86,6 +87,21 @@ class UserTableSeeder extends Seeder
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
         ]);
+
+        for($i = 11; $i < 30; $i++) 
+        {
+            User::create(
+                [ 
+                    'id' => $i,
+                    'name'      => 'ユーザー' . $i,
+                    'email'      => 'test'. $i . '@gmail.com',
+                    'password' => bcrypt('aaaaaaaa'),
+                    'remember_token' => bcrypt('secret'),
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ]
+            );
+        };
  
     }
 }
