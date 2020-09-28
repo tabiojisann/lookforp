@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-@if(env('APP_ENV') == 'production')
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-179163460-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-179163460-1');
-</script>
-@endif
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -23,6 +13,16 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
   <!-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> -->
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+@if(env('APP_ENV') == 'production')
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-179163460-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-179163460-1');
+</script>
+@endif
 </head>
 
 <body>
