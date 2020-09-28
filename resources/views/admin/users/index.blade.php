@@ -17,7 +17,7 @@
     </div>
       
       <div class="d-flex justify-content-center p-2">
-        <button type="submit" class="btn btn-default white-text">検索</button>
+        <button type="submit" class="btn btn-sm btn-default white-text">検索</button>
       </div>
     </form>
       @foreach($users as $user)

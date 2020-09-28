@@ -15,6 +15,7 @@
       :user="{{json_encode($user->PR)}}"
       :mark-body="{{json_encode($user->mark_body)}}">
       </user-textarea>
+      <button type="submit" class="btn btn-success btn-block">更新する</button>
     </div>
   </form>   
  

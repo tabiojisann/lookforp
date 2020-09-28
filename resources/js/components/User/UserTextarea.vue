@@ -1,23 +1,18 @@
 <template>
-
   <div>
-    <div class="py-2" style="height: 90vh;">
-       <mavon-editor v-model="PR" name="PR" language="ja" class="h-100" @change="changeText"/>
-    </div>
-    <textarea name="PR" v-model="PR" tabindex="30" cols="70" rows="30" placeholder="本文" class="d-none form-control z-depth-2"></textarea>
-    
-    <div class="d-flex justify-content-center border-top  blue lighten-5 ">
-      <input type="submit" class="btn btn-success px-5" value="更新">
-    </div>
+    <textarea name="PR" class="form-control" rows="10" placeholder="2000文字以内"
+      v-model="text">
+    </textarea>
+
+    <label :class="computedColor" >{{ this.textCount }}</label>
+    <label >/</label>
+    <label>2000</label>
   </div>
+
 
 </template>
 
 <script>
-import Vue from "vue";
-import mavonEditor from "mavon-editor"
-import "mavon-editor/dist/css/index.css"
-Vue.use(mavonEditor);
 
 export default {
   props: {
@@ -32,36 +27,40 @@ export default {
 
   data() {
     return {
-      PR: this.user,
-      parseText: this.markBody,
-      html: '',
-      value: '',
-      mdText: '',
-      htmlText: '',
-      toolbars: {
-        bold: true,
-        italic: true,
-        header: true,
-      }
-      
+      text: this.user
     }
   },
 
-  methods: {
-    changeText(value, reder) {
-      this.mdText = value;
-      this.htmlText = reder;
-    }
+  computed: {
+    textCount: function(){
+      if(this.text) {
+        return 2000 - this.text.length 
+      } else {
+        return 2000
+      }
+    },
+    
+    computedColor() {
+      let color = 'text-black';
+
+      if(this.textCount < 30) {
+        color = 'text-warning font-weight-bold';
+      }
+      if(this.textCount < 0) {
+        color = 'text-danger font-weight-bold';
+      }
+
+      console.log(this.textCount);
+      console.log(color);
+
+      return color;
+    },
   }
-
-
 }
 
 </script>
 
 <style scoped>
-  /* .editor {
-    overflow: hidden scroll;
-  } */
 
 </style>
+

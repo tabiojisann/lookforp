@@ -99,6 +99,7 @@
     <div class="d-flex justify-content-around">
       <a href="{{ route('articles.search') }}" class="border-bottom border-warning h6 text-muted">求人を探す</a>
       <a href="{{ route('users.search') }}" class="border-bottom border-warning h6 text-muted">人を探す</a>
+      <a href="{{ route('users.edit', ['user' => $user]) }}" class="border-bottom border-warning h6 text-muted">プロフィール編集</a>
     </div>
   </div>
 
