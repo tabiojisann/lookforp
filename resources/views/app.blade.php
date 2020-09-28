@@ -13,7 +13,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
   <!-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> -->
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-@if(env('APP_ENV') == 'production')
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-179163460-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -22,7 +22,6 @@
 
   gtag('config', 'UA-179163460-1');
 </script>
-@endif
 </head>
 
 <body>
