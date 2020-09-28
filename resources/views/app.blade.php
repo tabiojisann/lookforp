@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  @if(env('APP_ENV') == 'production')
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-179163460-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+@if(env('APP_ENV') == 'production')
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-179163460-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-      gtag('config', 'UA-179163460-1');
-    </script>
-  @endif
+  gtag('config', 'UA-179163460-1');
+</script>
+@endif
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
