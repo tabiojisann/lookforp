@@ -10,15 +10,15 @@
 
   @guest
   <!-- 記事一覧 -->
-    <div class="col-10 offset-1 col-md-8 offset-md-2 p-3">
+    <div class="col-12 col-md-8 offset-md-2 p-3">
 
       <div class="d-flex justify-content-between">
-        <div class="col-6 pt-4">
+        <div class="col-3 col-md-3 pt-4">
           <span class="font-weight-bold">{{ $articles->lastItem() }}</span>
           <span>/</span>
           <span>{{ $articles->total() }}</span>
         </div>
-        <div class="col-6">
+        <div class="col-9 col-md-6">
           @include('articles.tabs', ['hasNew' => false, 'hasPopular' => true])
         </div>
       </div>
@@ -42,12 +42,12 @@
   <!-- 記事一覧 -->
     <div class="col-12 col-md-6 offset-md-1 pb-5">
       <div class="d-flex justify-content-between">
-        <div class="col-6 pt-4">
+        <div class="col-3 col-md-3 pt-4">
           <span class="font-weight-bold">{{ $articles->lastItem() }}</span>
           <span>/</span>
           <span>{{ $articles->total() }}</span>
         </div>
-        <div class="col-6">
+        <div class="col-9 col-md-7">
           @include('articles.tabs', ['hasNew' => false, 'hasPopular' => true])
         </div>
       </div>
