@@ -17,6 +17,7 @@ class CreateThemesTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('image')->nullable();
+            $table->boolean('apply');
 
             $table->bigInteger('admin_id')->unsigned();
             $table->foreign('admin_id')->references('id')->on('admins');

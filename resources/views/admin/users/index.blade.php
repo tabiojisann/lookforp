@@ -20,6 +20,8 @@
         <button type="submit" class="btn btn-sm btn-default white-text">検索</button>
       </div>
     </form>
+    
+    <h5><span class="red-text font-weight-bold">{{ $users->total() }}</span>件</h5>
       @foreach($users as $user)
         <table class="table table-sm table-striped table-bordered my-3">
           <thead class="text-center">

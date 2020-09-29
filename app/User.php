@@ -10,8 +10,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use cebe\markdown\Markdown as Markdown;
+
 
 class User extends Authenticatable
 {
@@ -67,9 +67,15 @@ class User extends Authenticatable
         'birthday'
     ];
 
-    public function image(): hasOne
+
+    public function answer(): hasMany
     {
-        return $this->hasOne('App\Image');
+        return $this->hasMany('App\Answer');
+    }
+
+    public function themes(): hasMany
+    {
+        return $this->hasMany('App\Theme');
     }
 
     public function articles(): hasMany

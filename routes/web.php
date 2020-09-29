@@ -19,6 +19,7 @@ Route::resource('/articles', 'ArticleController')->except(['index', 'show'])->mi
 Route::resource('/articles', 'ArticleController')->only(['show']);
 Route::resource('/users', 'UserController')->only(['show', 'edit', 'update', 'destroy'])->middleware('auth');
 Route::resource('/themes', 'ThemeController')->only(['show'])->middleware('auth');
+Route::resource('/answers', 'AnswerController')->only(['store', 'destroy'])->middleware('auth');
 
 
 Route::prefix('articles')->name('articles.')->group(function () {
@@ -65,7 +66,6 @@ Route::prefix('contact')->name('contact.')->group(function() {
 });
 
 
-
 Route::prefix('admin')->name('admin.')->group(function() {
   Route::get('/login', 'Admin\LoginController@showLoginForm')->name('login');
   Route::post('/login', 'Admin\LoginController@login')->name('signIn');
@@ -89,7 +89,6 @@ Route::prefix('admin')->name('admin.')->group(function() {
 
     Route::resource('/themes', 'Admin\ThemeController');
 
-    
   });
 });
 

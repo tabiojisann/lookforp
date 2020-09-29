@@ -27,7 +27,7 @@ class ArticleController extends Controller
     public function index(Theme $theme)
     {
         $user     = Auth::user();
-        $theme    = Theme::first();
+        $theme    = Theme::where('apply', 1)->first();
    
         $articles = Article::orderBy('created_at', 'DESC')->paginate(5);
         
@@ -41,7 +41,7 @@ class ArticleController extends Controller
     public function popular(Article $article)
     {
         $user     = Auth::user();
-        $theme  = Theme::first();
+        $theme    = Theme::where('apply', 1)->first();
 
 
         $articles = Article::orderBy('stock', 'DESC')->paginate(5);

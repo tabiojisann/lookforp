@@ -22,6 +22,8 @@
             <input type="file" name="image" value="{{ $theme->image ?? '' }}">
           </div>
 
+          <input type="hidden" name="apply" id="apply" value="0">
+
           <input type="submit" value="送信">
         
         </form>
