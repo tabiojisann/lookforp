@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Article;
 use App\User;
+use App\Theme;
 use Carbon\Carbon;
 use Storage;
 use Illuminate\Support\Facades\Session;
@@ -23,22 +24,33 @@ class ArticleController extends Controller
         $this->authorizeResource(Article::class, 'article');
     }
 
-    public function index(Request $request)
+    public function index(Theme $theme)
     {
         $user     = Auth::user();
+        $theme    = Theme::first();
    
         $articles = Article::orderBy('created_at', 'DESC')->paginate(5);
         
-        return view('articles.index', ['articles' => $articles, 'user' => $user]);
+        return view('articles.index', [
+            'articles' => $articles, 
+            'user' => $user,
+            'theme' => $theme,
+        ]);
     }
 
     public function popular(Article $article)
     {
         $user     = Auth::user();
+        $theme  = Theme::first();
+
 
         $articles = Article::orderBy('stock', 'DESC')->paginate(5);
 
-        return view('articles.popular', ['articles' => $articles, 'user' => $user]);
+        return view('articles.popular', [
+            'articles' => $articles,
+            'user' => $user,
+            'theme' => $theme,
+            ]);
     }
 
 

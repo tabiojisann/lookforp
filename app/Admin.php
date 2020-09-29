@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use Illuminate\Database\Eloquent\Relations\HasOne;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Admin extends Authenticatable
@@ -37,5 +39,10 @@ class Admin extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function theme(): hasOne
+    {
+        return $this->hasOne('App\Theme');
+    }
 
 }

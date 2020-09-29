@@ -151,10 +151,7 @@
           endpoint="{{ route('articles.keep', ['article' => $article]) }}"
           >
         </article-keep>
-
-        <!-- <a href="{{ route('articles.show', ['article' => $article]) }}">
-          <small class="text-muted ">詳細</small>
-        </a> -->
+        
         <a href="{{ route('articles.show', ['article' => $article]) }}" class="btn btn-sm btn-mdb-color">
           <i class="fas fa-align-justify text-info"></i>  詳細
         </a>

@@ -18,6 +18,7 @@ Route::get('/', 'ArticleController@index')->name('articles.index');
 Route::resource('/articles', 'ArticleController')->except(['index', 'show'])->middleware('auth');
 Route::resource('/articles', 'ArticleController')->only(['show']);
 Route::resource('/users', 'UserController')->only(['show', 'edit', 'update', 'destroy'])->middleware('auth');
+Route::resource('/themes', 'ThemeController')->only(['show'])->middleware('auth');
 
 
 Route::prefix('articles')->name('articles.')->group(function () {
@@ -77,6 +78,7 @@ Route::prefix('admin')->name('admin.')->group(function() {
       Route::get('/index', 'Admin\ContactController@index')->name('index');
       Route::get('/{contact}/show', 'Admin\ContactController@show')->name('show');
       Route::get('/search', 'Admin\ContactController@search')->name('search');
+      Route::delete('/{contact}/destroy', 'Admin\ContactController@destroy')->name('destroy');
     });
 
     Route::prefix('/users')->name('users.')->group(function() {
@@ -85,8 +87,13 @@ Route::prefix('admin')->name('admin.')->group(function() {
       Route::get('/search', 'Admin\UserController@search')->name('search');
     });
 
+    Route::resource('/themes', 'Admin\ThemeController');
+
+    
   });
 });
+
+
 
 // Route::get('/home', 'HomeController@index')->name('home');
 

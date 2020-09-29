@@ -1,0 +1,22 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+
+class Theme extends Model
+{
+    protected $fillable = [
+        'title',
+        'image',
+    ];
+
+    public function admin(): BelongsTo
+    {
+        return $this->belongsTo('App\Admin');
+    }
+
+}
+

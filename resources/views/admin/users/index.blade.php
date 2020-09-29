@@ -22,22 +22,22 @@
     </form>
       @foreach($users as $user)
         <table class="table table-sm table-striped table-bordered my-3">
-          <thead>
+          <thead class="text-center">
             <tr>
-              <th class="th-sm"></th>
               <th class="th-sm">名前</th>
               <th class="th-sm">メールアドレス</th>
+              <th class="th-sm"></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="text-center">
             <tr>
-              <td class="text-center">
+              <td>{{ $user->name }}</td>
+              <td>{{ $user->email }}</td>
+              <td>
                 <a href="{{ route('admin.users.show', ['user' => $user]) }}" class="text-primary">
                   詳細
                 </a>
               </td>
-              <td>{{ $user->name }}</td>
-              <td>{{ $user->email }}</td>
             </tr>
           </tbody>
         </table>

@@ -77,18 +77,33 @@
 @include('flash')
 
 @auth
-  <!-- <div class=" morpheus-den-gradient py-5">
-    <div class="container border my-4">
 
-      <nav class="nav nav-pills nav-fill mt-5">
-        <a class="nav-item nav-link text-white bg young-passion-gradient" href="{{ route('users.edit', ['user' => $user]) }}">プロフィール編集</a>
-        <a class="nav-item nav-link text-white bg young-passion-gradient" href="{{ route('users.articles', ['user' => $user]) }}">投稿済み</a>
-        <a class="nav-item nav-link text-white bg young-passion-gradient" href="{{ route('articles.create') }}">募集をかける</a>
-      </nav>
+  @if(!empty($theme))
+    <div class="container">
+      <div class="text-center py-5">
+        <div class="card col-10 offset-1 col-md-6 offset-md-3 yellow">
+          <h2 class="font-weight-bold">{!! nl2br(e($theme->title)) !!}</h2>
+          <img src="{{ $theme->image ?? '' }}" alt="">
+        </div>
+        <div class="border col-10 offset-1 col-md-6 offset-md-3">
+          <a href="{{ route('themes.show', ['theme' => $theme]) }}">
+            <button class="btn btn-outline-indigo waves-effect my-2">回答一覧</button>
+          </a>
+        </div>
+      </div>
     </div>
-  </div> -->
+  @else
+    <div class="containerr">
+      <div class="text-center py-5">
+        <div class="card col-10 offset-1 col-md-6 offset-md-3 ">
+          <h3 class="my-5">調整中</h3>
+          <p>しばらくお待ちください</p>
+        </div>
+      </div>
+    </div>
+  @endif
 
-  <div class="container col-12 col-md-6 offset-md-3 ">
+  <div class="container col-12 col-md-6 offset-md-3 my-5">
     <div class="d-flex justify-content-around">
       <a href="{{ route('articles.index') }}" class="border-bottom border-warning h6 text-muted">募集一覧</a>
       <a href="{{ route('articles.create') }}" class="border-bottom border-success h6 text-muted">募集かける</a>

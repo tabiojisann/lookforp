@@ -19,6 +19,14 @@ class ContactController extends Controller
         return view('admin.contact.show', ['contact' => $contact]);
     }
 
+    public function destroy(Request $request, Contact $contact) {
+
+
+        $contact->delete();
+
+        return redirect()->route('admin.contacts.index');
+    }
+
     public function search(Request $request) {
 
         $keyword_name     = $request->input('keyword_name');

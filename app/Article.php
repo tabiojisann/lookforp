@@ -5,7 +5,6 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Kyslik\ColumnSortable\Sortable;
 use cebe\markdown\Markdown as Markdown;
 
 class Article extends Model
