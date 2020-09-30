@@ -78,6 +78,7 @@ Route::prefix('admin')->name('admin.')->group(function() {
       Route::get('/index', 'Admin\ContactController@index')->name('index');
       Route::get('/{contact}/show', 'Admin\ContactController@show')->name('show');
       Route::get('/search', 'Admin\ContactController@search')->name('search');
+      Route::get('/{contact}confirm', 'Admin\ContactController@confirm')->name('confirm');
       Route::delete('/{contact}/destroy', 'Admin\ContactController@destroy')->name('destroy');
     });
 
@@ -88,7 +89,7 @@ Route::prefix('admin')->name('admin.')->group(function() {
     });
 
     Route::resource('/themes', 'Admin\ThemeController');
-
+    Route::get('/themes/{theme}/confirm', 'Admin\ThemeController@confirm')->name('themes.confirm');
   });
 });
 

@@ -17,24 +17,20 @@
           </div>
         </div>
 
+
         @foreach($themes as $theme)
           <div class="border my-5 text-center">
-            @if($theme->apply === 0)
-            <div class="border text-right">
-              <a href="{{ route('admin.themes.edit', ['theme' => $theme,  'applyTheme'  => $applyTheme] )}}">適用する</a>
-              <button form="deleteTheme" class="btn btn-sm btn-danger" type="submit">削除</button>
-            </div>
-            @endif
 
+            @if($theme->apply === 0)
+              <div class="border text-right">
+                <a href="{{ route('admin.themes.edit', ['theme' => $theme,  'applyTheme'  => $applyTheme] )}}">適用する</a>
+                <a href="{{ route('admin.themes.confirm', ['theme' => $theme]) }}" class="red-text">削除</a>
+              </div>
+            @endif
             <p>タイトル : {{ $theme->title }}</p>
             <img src="{{ $theme->image ?? '' }}" alt="">
+            
           </div>
-
-          <form action="{{ route('admin.themes.destroy', ['theme' => $theme]) }}" method="post" id="deleteTheme">
-            @csrf
-            @method('DELETE')
-          </form>
-
         @endforeach
       </div>
     </div>

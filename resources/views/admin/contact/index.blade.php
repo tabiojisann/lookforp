@@ -32,8 +32,7 @@
             <th class="th-sm">名前</th>
             <th class="th-sm">メールアドレス</th>
             <th class="th-sm">
-              <a type="button" class="red-text" data-toggle="modal" data-target="#deleteContact">削除</a>
-              @include('admin.contact.modal')
+              <a href="{{ route('admin.contacts.confirm', ['contact' => $contact]) }}" class="red-text">削除</a>
             </th>
           </tr>
         </thead>

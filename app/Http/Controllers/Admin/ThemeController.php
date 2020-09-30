@@ -20,7 +20,7 @@ class ThemeController extends Controller
 
     public function index() {
 
-        $themes = Theme::all();
+        $themes = Theme::all()->sortByDesc('created_at');
         $applyTheme  = Theme::where('apply', 1)->first();
 
         return view('admin.theme.index', [
@@ -69,8 +69,16 @@ class ThemeController extends Controller
 
     }
 
-    public function destroy(Theme $theme) {
+    public function confirm(Theme $theme)
+    {
+        if($theme->apply === 1){
+            abort(404, '消せません');
+        }
+        return view('admin.theme.confirm', ['theme' => $theme]);
+    }
 
+    public function destroy(Theme $theme) 
+    {
         if($theme->apply === 1){
             abort(404, '消せません');
         }

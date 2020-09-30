@@ -5,12 +5,12 @@
 @section('content')
   @include('nav')
 
-
-
-  <div class="cantainer blue-gradient" style="max-width: 100%; height: 100vh;">
+  <div class="cantainer" style="max-width: 100%;">
     <div class="row">
-      <div class="help col-8 offset-2 bg-white border border-white p-5 mt-5" style="height: 80vh;">
-        <p>プライバシー</p>
+
+      <div class="container my-5">
+        <h2 class="border-bottom">プライバシーポリシー</h2>
+        <small>LookForp（以下，「当社」といいます。）は，本ウェブサイト上で提供するサービス（以下,「本サービス」といいます。）における，ユーザーの個人情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。</small>
       </div>
     </div>
   </div>

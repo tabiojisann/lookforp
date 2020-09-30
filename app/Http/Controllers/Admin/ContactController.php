@@ -19,9 +19,13 @@ class ContactController extends Controller
         return view('admin.contact.show', ['contact' => $contact]);
     }
 
-    public function destroy(Request $request, Contact $contact) {
+    public function confirm(Contact $contact)
+    {
+        return view('admin.contact.confirm', ['contact' => $contact]);
+    }
 
-
+    public function destroy(Request $request, Contact $contact) 
+    {
         $contact->delete();
 
         return redirect()->route('admin.contacts.index');
