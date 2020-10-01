@@ -35,3 +35,9 @@
       {{ session('abort') }}
   </div>
 @endif
+
+@if(session('once'))
+  <small class="flash_message text-danger">
+      {{ session('once') }}
+  </small>
+@endif

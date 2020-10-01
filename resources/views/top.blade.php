@@ -81,15 +81,24 @@
   @if(!empty($theme))
     <div class="container">
       <div class="text-center py-5">
-        <div class="card col-10 offset-1 col-md-6 offset-md-3 yellow">
-          <h2 class="font-weight-bold">{!! nl2br(e($theme->title)) !!}</h2>
-          <img src="{{ $theme->image ?? asset('logo/NoImage.jpg') }}" alt="" width=200 height=200 class="my-4">
+
+        <h2 class="col-12">今週のお題</h2>
+
+        <div class="card col-10 offset-1 col-md-6 offset-md-3 orange">
+          <h3 class="font-weight-bold mt-3">{!! nl2br(e($theme->title)) !!}</h3>
+          @if(isset($theme->image))
+            <div class="text-center">
+              <img src="{{ $theme->image ?? '' }}" alt="" class="imgAuto my-4">
+            </div>
+          @endif
         </div>
+
         <div class="border col-10 offset-1 col-md-6 offset-md-3">
           <a href="{{ route('themes.show', ['theme' => $theme]) }}">
             <button class="btn btn-outline-indigo waves-effect my-2">回答一覧</button>
           </a>
         </div>
+
       </div>
     </div>
   @else

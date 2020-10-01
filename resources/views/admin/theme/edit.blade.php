@@ -15,9 +15,13 @@
 
           <div class="border text-center p-5 mt-5">
             <div class="col-10 offset-1 col-md-6 offset-md-3 my-5">
-              <div class="card text-center yellow">
-                <h3 class="font-weight-bold">{{ $theme->title }}</h3>
-                <img src="{{ $theme->image ?? '' }}" alt="" width=200 height=200 class=" my-4">
+              <div class="card text-center orange">
+              <h3 class="font-weight-bold">{!! nl2br(e($theme->title)) !!}</h3>
+                @if(isset($theme->image))
+                  <div class="text-center">
+                    <img src="{{ $theme->image }}" alt=""  class="imgAuto my-4">
+                  </div>
+                @endif
               </div>
             </div>
             <h2>このお題を適用しますか？</h2>

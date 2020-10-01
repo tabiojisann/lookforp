@@ -4,9 +4,9 @@
 
       <div class="d-inline">
 
-        <div v-show="countKeeps" class="text-right Mobile">
+        <!-- <div v-show="countKeeps" class="text-right Mobile">
           <h6 class="text-muted"><span class="text-warning font-weight-bold">{{ countKeeps }}</span>人のユーザーが気になっています</h6>
-        </div>
+        </div> -->
 
         <button class="btn btn-success px-2 Mobile" type="button" 
                 :class="{'grey lighten-2':this.isKeep}"
@@ -23,7 +23,7 @@
             :class="keepIcon">
           </i>気になる
         </button>
-        <small>{{ countKeeps }}</small>
+        <!-- <small>{{ countKeeps }}</small> -->
 
       </div>
     

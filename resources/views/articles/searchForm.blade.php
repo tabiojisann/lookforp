@@ -1,5 +1,3 @@
-
-
 <div class="Mobile card border-light col-md-4 col-lg-3 offset-md-1 my-5 search">
   <form action="{{ route('articles.search') }}" method="GET">
     <div class="d-flex flex-column sidebar-fixed">
@@ -15,7 +13,7 @@
 
       <div class="p-3 mt-1">
         <label for="style" class="text-muted">募集スタイル</label>
-        <select name="style" id="styleDesk" class="browser-default custom-select" value="" id="">
+        <select name="style" id="styleMobile" class="browser-default custom-select" value="" id="">
           <option value="" class="d-none">選択してください</option>
           <option value="1">漫才</option>
           <option value="2">コント</option>
@@ -27,11 +25,12 @@
 
       <div class="p-3 mt-1">
         <label for="position" class="text-muted">募集ポジション</label>
-        <select name="position" id="positionDesk" class="browser-default custom-select p-2" value="" id="">
+        <select name="position" id="positionMobile" class="browser-default custom-select p-2" value="" id="">
           <option value="" class="d-none">選択してください</option>
           <option value="1" >ボケ</option>
           <option value="2">ツッコミ</option>
-          <option value="3">その他</option>
+          <option value="3">作家</option>
+          <option value="4">その他</option>
         </select>
       </div>
 
@@ -44,7 +43,7 @@
   </form>
 </div>
 
-<div class="Desk card border-light col-10 offset-1 my-5">
+<div class="Desk card border-light col-10 offset-1 my-5 ">
   <form action="{{ route('articles.search') }}" method="GET">
     <div class="d-flex flex-column sidebar-fixed">
       <div class="input-group form-sm form-1 pl-0 mt-3 p-3">

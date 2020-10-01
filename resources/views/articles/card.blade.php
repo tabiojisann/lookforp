@@ -59,22 +59,24 @@
       
 
     @endif
-  </div>
+  </div> 
 
   <span class="border"></span>
+
+  @if(\Route::current() -> getName() == 'articles.popular')
+    @if(isset($article->stock))
+      <h6 class="text-muted"><span class="text-warning font-weight-bold ml-4">{{ $article->stock }}</span>人のユーザーが気になっています</h6>
+    @endif
+  @endif
     
   <div class="">
     @if(isset($article->image))
-      <img class="card-img-top" src="{{ $article->image }}" width="978" height="378" alt="Card image cap">
+      <img class="card-img-top" src="{{ $article->image }}" alt="Card image cap" class="imgAuto">
     @endif
     <a href="{{ route('articles.show', ['article' => $article]) }}">
       <div class="mask rgba-white-slight"></div>
     </a>
   </div>
-
-
-
-  <span class="border"></span>
 
   <div class="card-body">
     <div class="row">            
@@ -143,6 +145,13 @@
         <h6 class="ml-4">{{ $article->title }}</h6>
         <small class="d-block text-muted ml-4">ポジション：{{ $article->position }}</small>
         <small class="d-block text-muted ml-4">ポジション：{{ $article->style }}</small>
+
+       
+        @if(\Route::current() -> getName() == 'articles.popular')
+          @if(isset($article->stock))
+            <h6 class="text-muted"><span class="text-warning font-weight-bold ml-4">{{ $article->stock }}</span>人のユーザーが気になっています</h6>
+          @endif
+        @endif
 
         <article-keep
           :initial-is-keep='@json($article->isKeep(Auth::user()))'

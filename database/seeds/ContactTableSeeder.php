@@ -13,7 +13,7 @@ class ContactTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 1; $i < 50; $i++)
+        for($i = 1; $i < 20; $i++)
         {
             Contact::create(
                 [

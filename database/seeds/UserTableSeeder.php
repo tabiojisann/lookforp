@@ -88,17 +88,70 @@ class UserTableSeeder extends Seeder
             ],
         ]);
 
-        for($i = 11; $i < 30; $i++) 
+        for($i = 7; $i <= 10; $i++)
+        {
+            User::create(
+                [
+                    'id'             => $i,
+                    'name'           => 'テストユーザー' . $i,
+                    'email'          => 'user'. $i . '@gmail.com',
+                    'password'       => bcrypt('aaaaaaaa'),
+                    'remember_token' => bcrypt('secret'),
+                    'sex'            => '男性',
+                    'age'            => $i,
+                    'created_at'     => date('Y-m-d H:i:s'),
+                    'updated_at'     => date('Y-m-d H:i:s'),
+                ]
+            );
+        }
+
+        for($i = 11; $i <= 20; $i++) 
         {
             User::create(
                 [ 
-                    'id' => $i,
-                    'name'      => 'ユーザー' . $i,
-                    'email'      => 'test'. $i . '@gmail.com',
-                    'password' => bcrypt('aaaaaaaa'),
+                    'id'             => $i,
+                    'name'           => 'テストユーザー' . $i,
+                    'email'          => 'test'. $i . '@gmail.com',
+                    'password'       => bcrypt('aaaaaaaa'),
                     'remember_token' => bcrypt('secret'),
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),
+                    'sex'            => '女性',
+                    'age'            => $i,
+                    'created_at'     => date('Y-m-d H:i:s'),
+                    'updated_at'     => date('Y-m-d H:i:s'),
+                ]
+            );
+        };
+
+        for($i = 21; $i <= 25; $i++) 
+        {
+            User::create(
+                [ 
+                    'id'             => $i,
+                    'name'           => 'テストユーザー' . $i,
+                    'email'          => 'test'. $i . '@gmail.com',
+                    'password'       => bcrypt('aaaaaaaa'),
+                    'remember_token' => bcrypt('secret'),
+                    'sex'            => '男性',
+                    'age'            => $i,
+                    'created_at'     => date('Y-m-d H:i:s'),
+                    'updated_at'     => date('Y-m-d H:i:s'),
+                ]
+            );
+        };
+
+        for($i = 26; $i <= 30; $i++) 
+        {
+            User::create(
+                [ 
+                    'id'             => $i,
+                    'name'           => 'テストユーザー' . $i,
+                    'email'          => 'test'. $i . '@gmail.com',
+                    'password'       => bcrypt('aaaaaaaa'),
+                    'remember_token' => bcrypt('secret'),
+                    'sex'            => '男性',
+                    'age'            => $i,
+                    'created_at'     => date('Y-m-d H:i:s'),
+                    'updated_at'     => date('Y-m-d H:i:s'),
                 ]
             );
         };

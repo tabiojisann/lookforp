@@ -24,7 +24,7 @@ class AnswerRequest extends FormRequest
     public function rules()
     {
         return [
-            'text' => ['required', 'max:120'],
+            'text' => ['required', 'max:100'],
         ];
     }
     public function attributes()

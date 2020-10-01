@@ -14,8 +14,12 @@
           <h3 class="text-center">現在適用中のお題</h3>
           <p>回答数 <span class="orange-text font-weight-bold">{{ $applyTheme->answer->count() }}</span>件</p>
           <div class="card text-center orange">
-            <h3 class="font-weight-bold">{{ $applyTheme->title }}</h3>
-            <img src="{{ $applyTheme->image ?? asset('logo/NoImage.jpg') }}" alt="" width=200 height=200 class="my-4">
+            <h3 class="font-weight-bold">{!! nl2br(e($applyTheme->title)) !!}</h3>
+            @if(isset($applyTheme->image))
+              <div class="text-center">
+                <img src="{{ $applyTheme->image ?? '' }}" alt=""  class="imgAuto my-4">
+              </div>
+            @endif
           </div>
         </div>
 

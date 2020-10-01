@@ -4,7 +4,6 @@
 
 @section('content')
   @include('nav')
-  @include('top')
 
   <div class="row blue lighten-4">
 

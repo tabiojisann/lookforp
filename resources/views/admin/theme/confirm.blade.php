@@ -21,7 +21,7 @@
             </div>
             <div class="container my-5 text-center">
               <p class="h4">画像</p>
-              <img src="{{ $theme->image ?? '' }}" alt="" width=200 height=200 class="my-4">
+              <img src="{{ $theme->image ?? asset('logo/NoImage.jpg') }}" alt="" width=200 height=200 class="my-4">
             </div>
             <div class="text-center">
               <button type="submit" class="btn btn-danger my-5">はい</button>

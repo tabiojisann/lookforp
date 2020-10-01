@@ -17,8 +17,8 @@ class AdminTableSeeder extends Seeder
             [
                 'id'    =>  1,
                 'name'      => '管理ユーザー',
-                'email'      => 'admin@gmail.com',
-                'password' => bcrypt('aaaaaaaa'),
+                'email'      => config('admin.email'),
+                'password' => bcrypt(config('admin.password')),
                 'remember_token' => bcrypt('secret'),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s') 

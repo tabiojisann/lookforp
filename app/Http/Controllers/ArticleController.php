@@ -50,7 +50,7 @@ class ArticleController extends Controller
             'articles' => $articles,
             'user' => $user,
             'theme' => $theme,
-            ]);
+        ]);
     }
 
 
@@ -77,6 +77,7 @@ class ArticleController extends Controller
         if($style === '3') {
             $query->where('style', 'その他');
         } 
+
         if($position === '1') {
             $query->where('position', 'ボケ');
         } 
@@ -84,6 +85,9 @@ class ArticleController extends Controller
             $query->where('position', 'ツッコミ');
         } 
         if($position === '3') {
+            $query->where('position', '作家');
+        } 
+        if($position === '4') {
             $query->where('position', 'その他');
         } 
 

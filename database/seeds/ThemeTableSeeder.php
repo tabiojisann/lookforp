@@ -24,6 +24,20 @@ class ThemeTableSeeder extends Seeder
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
         ]);
+
+        for($i = 2; $i <=5; $i++) 
+        {
+            Theme::create(
+                [
+                    'id'         => $i,
+                    'title'      => $i . '歳がいいそうなことを教えてください',
+                    'admin_id'   => 1,
+                    'apply'      => false, 
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ]
+            );
+        };
         
     }
 }

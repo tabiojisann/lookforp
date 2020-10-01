@@ -13,12 +13,17 @@
 
           <div class="form-group">
             <label for="">お題</label>
-            <!-- <input type="text" name="title" col="2" class="form-control" value="{{ $theme->title ?? old('title') }}" required> -->
+            @error('title')
+              <small class="text-danger">{{ $message }}</small>
+            @enderror
             <textarea name="title" cols="30" rows="2" class="form-control" require>{{ $theme->title ?? old('title') }}</textarea>
           </div>
 
           <div class="form-group my-5">
             <label for="">画像</label>
+            @error('image')
+              <small class="text-danger">{{ $message }}</small>
+            @enderror
             <input type="file" name="image" value="{{ $theme->image ?? '' }}">
           </div>
 
