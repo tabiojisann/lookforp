@@ -5,8 +5,6 @@
 
 @section('content')
   @include('nav')
-
-  @include('top')
   
     @foreach($articles as $article)
       <div class="container green lighten-5" style="max-width: 100%;">
