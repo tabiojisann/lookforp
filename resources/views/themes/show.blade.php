@@ -10,7 +10,7 @@
 
       <div class="card text-center col-10 offset-1 col-md-6 offset-md-3 yellow">
         <h2 class="font-weight-bold">{{ $theme->title }}</h2>
-        <img src="{{ $theme->image ?? '' }}" alt="">
+        <img src="{{ $theme->image ?? asset('logo/NoImage.jpg') }}" alt="" width=200 height=200 class="my-4">
       </div>
 
       <br>
@@ -44,7 +44,7 @@
               <form action="{{ route('answers.destroy',['answer' => $answer]) }}" method="post">
                 @csrf
                 @method('DELETE')
-                <input type="submit" class="" value="削除">
+                <input type="submit" class="btn btn-sm btn-danger" value="削除">
               </form>
             @endif
           </div>

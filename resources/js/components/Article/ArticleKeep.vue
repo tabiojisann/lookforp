@@ -26,13 +26,6 @@
         <small>{{ countKeeps }}</small>
 
       </div>
-
-      
-
-
-      
-  
-
     
 </template>
 

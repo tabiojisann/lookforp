@@ -17,6 +17,7 @@
             <div class="col-10 offset-1 col-md-6 offset-md-3 my-5">
               <div class="card text-center yellow">
                 <h3 class="font-weight-bold">{{ $theme->title }}</h3>
+                <img src="{{ $theme->image ?? '' }}" alt="" width=200 height=200 class=" my-4">
               </div>
             </div>
             <h2>このお題を適用しますか？</h2>

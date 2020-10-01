@@ -83,7 +83,7 @@
       <div class="text-center py-5">
         <div class="card col-10 offset-1 col-md-6 offset-md-3 yellow">
           <h2 class="font-weight-bold">{!! nl2br(e($theme->title)) !!}</h2>
-          <img src="{{ $theme->image ?? '' }}" alt="">
+          <img src="{{ $theme->image ?? asset('logo/NoImage.jpg') }}" alt="" width=200 height=200 class="my-4">
         </div>
         <div class="border col-10 offset-1 col-md-6 offset-md-3">
           <a href="{{ route('themes.show', ['theme' => $theme]) }}">
