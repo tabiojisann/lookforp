@@ -9,9 +9,7 @@
   <div class="container my-5 orange lighten-5" style="max-width: 100%;">
     <div class="row">
 
-      <h2 class="col-12 text-center mt-5">今週のお題</h2>
-
-      <div class="card text-center col-10 offset-1 col-md-6 offset-md-3 orange">
+      <div class="card text-center col-10 offset-1 col-md-6 offset-md-3 orange mt-5">
         <h3 class="font-weight-bold">{!! nl2br(e($theme->title)) !!}</h3>
         @if(isset($theme->image))
           <div class="text-center">
@@ -44,13 +42,18 @@
         <div class="container border bg-white col-10 offset-1 col-md-8 offset-md-2 mb-5">
 
           <div class="border-bottom d-flex justify-content-between">
-            <div>
+            <div class="py-2">
               <img src="{{ $answer->user->image ?: asset('logo/user.jpg') }}"  height="20" width="20" class="rounded-circle"  alt="">
               @if(Auth::id() === $answer->user_id)
-                <b class="text-danger">{{ $answer->user->name }}</b>
+                <a href="{{ route('users.edit', ['user' => $answer->user_id]) }}">
+                  <b class="text-danger">{{ $answer->user->name }}</b>
+                </a>
               @else
-                <b class="text-muted">{{ $answer->user->name }}</b>
+                <a href="{{ route('users.show', ['user' => $answer->user_id]) }}">
+                  <b class="text-muted">{{ $answer->user->name }}</b>
+                </a>
               @endif
+
             </div>
 
             <div class="text-right">
@@ -58,7 +61,7 @@
                 <div class="dropdown">
 
                   <!--Trigger-->
-                  <i class="fas fa-ellipsis-h" type="button" data-toggle="dropdown"></i>
+                  <i class="fas fa-ellipsis-h pt-2" type="button" data-toggle="dropdown"></i>
           
                   <!--Menu-->
                   <div class="dropdown-menu dropdown-primary">
@@ -78,28 +81,26 @@
           </div>
 
           <div class="container">
-            <p>{{ $answer->text }}</p>
+            <p class="pt-2">{{ $answer->text }}</p>
             <small class="text-muted">{{ $answer->created_at }}</small>
           </div>
 
+          <div class="dropdown-divider"></div>
+
+          
+          
+          <answer-like
+            :initial-is-liked-by='@json($answer->islikedBy(Auth::user()))'
+            :initial-count-likes='@json($answer->count_likes)'
+            :authorized='@json(Auth::check())'
+            :auth-user="@json(Auth::user()->id)"
+            :answer-user-id="@json($answer->user_id)"
+            endpoint="{{ route('answers.like', ['answer' => $answer]) }}"
+          >
+          </answer-like>
+
           <div class="dropdown-divider danger"></div>
 
-          <div class="d-flex justify-content-between">
-
-            <div class="container">
-              <i class="fas fa-star yellow-text"></i>
-              <small class="text-muted">1</small>
-            </div>
-
-            <div class="container text-right">
-              <a href="">いいね</a>
-            </div>
-            
-          </div>
-
-          <div class="dropdown-divider danger"></div>
-
-        
         </div>
       @endforeach
       <div class="container">

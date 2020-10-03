@@ -120,12 +120,4 @@ class User extends Authenticatable
         $this->notify(new PasswordResetNotification($token, new BareMail()));
     }
 
-    
 }
-
-
-
-
-
-
-

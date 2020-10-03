@@ -47,10 +47,6 @@ export default {
     endpoint: {
       type: String,
     },
-    stock: {
-      type: Number,
-      default: 0,
-    }
    
   },
 
@@ -59,7 +55,6 @@ export default {
       isKeep: this.initialIsKeep,
       keeping: false,
       countKeeps: this.initialCountKeeps,
-
 
     }
   },

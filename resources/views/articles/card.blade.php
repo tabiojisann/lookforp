@@ -151,11 +151,13 @@
           @if(isset($article->stock))
             <h6 class="text-muted"><span class="text-warning font-weight-bold ml-4">{{ $article->stock }}</span>人のユーザーが気になっています</h6>
           @endif
+
+          {{ $article->count_keeps }}
         @endif
 
         <article-keep
           :initial-is-keep='@json($article->isKeep(Auth::user()))'
-          :initial-count-keeps='@json($article->count_keeps)'
+          :initial-count-keeps='@json($article->stock)'
           :authorized='@json(Auth::check())'
           endpoint="{{ route('articles.keep', ['article' => $article]) }}"
           >

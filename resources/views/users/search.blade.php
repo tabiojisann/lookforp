@@ -62,7 +62,7 @@
         @if($users->count())
         <h5 class="my-4"><span class="red-text font-weight-bold">{{ $users->count() }}</span>件ヒットしました</h5>
           @foreach($users as $user)
-          <a href="{{ route('users.show', ['user' => $user]) }}" class="d-block animated animated fadeInRight">
+          <a href="{{ route('users.show', ['user' => $user]) }}" class="d-block animated fadeInRight">
             
             <table class="table table-bordered Mobile">
               <thead>

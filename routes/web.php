@@ -14,12 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes(); 
 Route::get('/', 'ArticleController@index')->name('articles.index');
+Route::get('/popular', 'ArticleController@popular')->name('articles.popular');
 
 Route::resource('/articles', 'ArticleController')->except(['index', 'show'])->middleware('auth');
 Route::resource('/articles', 'ArticleController')->only(['show']);
 Route::resource('/users', 'UserController')->only(['show', 'edit', 'update', 'destroy'])->middleware('auth');
-Route::resource('/themes', 'ThemeController')->only(['show'])->middleware('auth');
-Route::resource('/answers', 'AnswerController')->only(['store', 'destroy'])->middleware('auth');
+// Route::resource('/themes', 'ThemeController')->only(['show'])->middleware('auth');
+Route::resource('/answers', 'AnswerController')->only(['store', 'destroy',])->middleware('auth');
+Route::get('/themes/{theme}/answers/', 'answerController@index')->name('answers.index');
 
 
 Route::prefix('articles')->name('articles.')->group(function () {
@@ -41,6 +43,11 @@ Route::prefix('users')->name('users.')->group(function() {
   });
 });
 
+Route::prefix('answers')->name('answers.')->group(function () {
+  Route::put('/{answer}/like', 'AnswerController@like')->name('like')->middleware('auth');
+  Route::delete('/{answer}/like', 'AnswerController@unlike')->name('unlike')->middleware('auth');
+});
+
 Route::get('/confirm', 'ArticleController@confirm')->name('articles.confirm')->middleware('auth');
 Route::post('/confirm', 'ArticleController@send')->name('articles.send')->middleware('auth');
 Route::get('/confirEdit', 'ArticleController@confirmEdit')->name('articles.confirmEdit')->middleware('auth');
@@ -50,7 +57,6 @@ Route::patch('/confirmEdit', 'ArticleController@sendPatch')->name('articles.send
 Route::get('search/articles', 'ArticleController@search')->name('articles.search');
 Route::get('search/users', 'UserController@search')->name('users.search');
 
-Route::get('/popular', 'ArticleController@popular')->name('articles.popular');
 
 Route::prefix('footer')->name('footer.')->group(function() {
   Route::get('/terms', 'FooterController@terms')->name('terms');

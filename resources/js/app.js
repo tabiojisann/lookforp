@@ -35,6 +35,7 @@ import ArticleImageUpload from './components/Article/ArticleImageUpload'
 import ArticleTextarea from './components/Article/ArticleTextarea'
 import UserImageUpload from './components/User/UserImageUpload'
 import UserTextarea from './components/User/UserTextarea'
+import AnswerLike from './components/Answer/AnswerLike'
 import NameValidate from './components/Auth/NameValidate'
 import EmailValidate from './components/Auth/EmailValidate'
 import PasswordValidate from './components/Auth/PasswordValidate'
@@ -50,6 +51,7 @@ const app = new Vue({
         ArticleTextarea,
         UserImageUpload,
         UserTextarea,
+        AnswerLike,
         NameValidate,
         EmailValidate,
         PasswordValidate,

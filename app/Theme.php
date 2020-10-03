@@ -13,7 +13,6 @@ class Theme extends Model
         'title',
         'image',
         'apply',
-
     ];
 
     public function admin(): BelongsTo
@@ -21,16 +20,15 @@ class Theme extends Model
         return $this->belongsTo('App\Admin');
     }
 
-    public function user(): BelongsTo
+    public function user(): hasMany
     {
-        return $this->belongsTo('App\User');
+        return $this->hasMsny('App\User');
     }
 
     public function answer(): hasMany
     {
         return $this->hasMany('App\Answer');
     }
-
 
 }
 

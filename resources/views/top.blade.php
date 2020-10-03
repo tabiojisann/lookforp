@@ -94,7 +94,7 @@
         </div>
 
         <div class="border col-10 offset-1 col-md-6 offset-md-3">
-          <a href="{{ route('themes.show', ['theme' => $theme]) }}">
+          <a href="{{ route('answers.index', ['theme' => $theme]) }}">
             <button class="btn btn-outline-indigo waves-effect my-2">回答一覧</button>
           </a>
         </div>
