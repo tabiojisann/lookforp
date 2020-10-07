@@ -41,28 +41,29 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script> -->
-  <!-- <script type="text/javascript"></script> -->
 
+  <!-- swiper -->
   <script>
     var mySwiper = new Swiper ('.swiper-container', {
-      loop: true,
-      speed: 1000,
-      pagination: {
+        loop: true,
+        speed: 1000,
+        centeredSlides: true,
+        slidesPerView: 1.5,
+        spaceBetween: 2,
+        pagination: {
         el: '.swiper-pagination',
-      },
-      // navigation: {
-      //   nextEl: '.swiper-button-next',
-      //   prevEl: '.swiper-button-prev',
-      // },
-      scrollbar: {
+        },
+        effect: 'coverflow',
+        scrollbar: {
         el: '.swiper-scrollbar',
-      },
-      autoplay: {
-        delay: 1000,
-      },
+        },
+        autoplay: {
+          delay: 2000,
+        },
     })
   </script>
+  <!-- swiper -->
+
 </body>
 
 </html>

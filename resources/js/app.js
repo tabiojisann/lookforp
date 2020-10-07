@@ -43,6 +43,7 @@ import EmailValidate from './components/Auth/EmailValidate'
 import PasswordValidate from './components/Auth/PasswordValidate'
 
 
+
 const app = new Vue({
     el: '#app',
     components: {
@@ -58,6 +59,11 @@ const app = new Vue({
         PasswordValidate,
     }
 });
+
+
+
+
+
 
 
   

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Article;
 use App\User;
 use App\Theme;
+use App\Answer;
 use Carbon\Carbon;
 use Storage;
 use Illuminate\Support\Facades\Session;
@@ -31,11 +32,15 @@ class ArticleController extends Controller
    
         $articles = Article::orderBy('created_at', 'DESC')->paginate(5);
         $articles->load('user', 'keeps');
+
+        $answers = Answer::where('theme_id', $theme->id)->withCount('likes')->orderBy('likes_count', 'DESC')->get();
+    
         
         return view('articles.index', [
             'articles' => $articles, 
-            'user' => $user,
-            'theme' => $theme,
+            'user'     => $user,
+            'theme'    => $theme,
+            'answers'  => $answers
         ]);
     }
 

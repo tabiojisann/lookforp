@@ -1,22 +1,205 @@
 @guest
 
-  <div class="swiper-container">
-      <!-- Sliderの内包コンテナ -->
-      <div class="swiper-wrapper">
-          <!-- Slideさせたいコンテンツ -->
-          <div class="swiper-slide"><img src="{{ asset('logo/pen.png') }}" alt="" width=600 height=300></div>
-          <div class="swiper-slide"><img src="{{ asset('logo/ねこ.jpg') }}" alt="" width=600 height=300></div>
-          <div class="swiper-slide"><img src="{{ asset('logo/test.jpg') }}" alt="" width=600 height=300></div>
-      </div>
-      <!-- ページネーション（※省略可） -->
-      <div class="swiper-pagination"></div>
-      <!-- ナビゲーションボタン（※省略可） -->
-      <!-- <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div> -->
+  @if(!empty($theme))
+    <div class="container col col-md-6 my-2">
+      <div class="card text-center">
 
-      <!-- スクロールバー（※省略可） -->
-      <div class="swiper-scrollbar"></div>
-  </div>
+        <div class="card-header">
+          <h4>今週のお題</h4>
+        </div>
+
+        <div class="card-body bg orange">
+          <h3 class="font-weight-bold">{!! nl2br(e($theme->title)) !!}</h3>
+        </div>
+        @if(isset($theme->image))
+          <div class="text-center">
+            <img src="{{ $theme->image ?? '' }}" alt="" class="imgAuto my-4">
+          </div>
+        @endif
+
+      </div>
+    </div>
+
+    
+    <!-- swiper -->
+    <div class="swiper-container my-4">
+      <div class="swiper-wrapper">
+
+
+        <!-- slide-content -->
+        <div class="swiper-slide">
+          <div class="card border">
+
+
+            <!-- slide-header -->
+            <div class="container text-center">
+              <b class="h2"><i class="fas fa-crown yellow-text"></i></b>
+              <b class="h2">1位</b>
+            </div>
+
+            <div class="card-header d-flex justify-content-between">
+
+  
+                <div class="Desk">
+                  <img src="{{ $answers[0]->user->image ?? asset('logo/user.jpg') }}" alt="" height="20" width="20" class="rounded-circle">
+                  <small>{{ $answers[0]->user->name }}</small>
+                </div>
+                <div class="Mobile">
+                  <img src="{{ $answers[0]->user->image ?? asset('logo/user.jpg') }}" alt="" height="30" width="30" class="rounded-circle">
+                  <h4 class="d-inline">{{ $answers[0]->user->name }}</h4>
+                </div>
+
+                <div class="Desk">
+                  <small><i class="fas fa-star yellow-text"></i></small>
+                  <small>{{ $answers[0]->count_likes }}</small>
+                </div>
+                <div class="Mobile">
+                  <h4 class="d-inline"><i class="fas fa-star yellow-text"></i></h4>
+                  <h4 class="d-inline">{{ $answers[0]->count_likes }}</h4>
+                </div>
+
+            </div>
+
+            <!-- slide-header -->
+
+
+            <!-- slide-body -->
+
+            <div class="card-body Mobile">
+              <h2>{!! nl2br(e($answers[0]->text)) !!}</h2>
+            </div>
+
+            <div class="card-body Desk">
+              <p>{!! nl2br(e($answers[0]->text)) !!}</p>
+            </div>
+
+            <!-- slide-body -->
+
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="card border">
+
+
+            <!-- slide-header -->
+            <div class="container text-center">
+              <b class="h2"><i class="fas fa-crown grey-text"></i></b>
+              <b class="h2">2位</b>
+            </div>
+
+            <div class="card-header d-flex justify-content-between">
+
+  
+                <div class="Desk">
+                  <img src="{{ $answers[1]->user->image ?? asset('logo/user.jpg') }}" alt="" height="20" width="20" class="rounded-circle">
+                  <small>{{ $answers[1]->user->name }}</small>
+                </div>
+                <div class="Mobile">
+                  <img src="{{ $answers[1]->user->image ?? asset('logo/user.jpg') }}" alt="" height="30" width="30" class="rounded-circle">
+                  <h4 class="d-inline">{{ $answers[1]->user->name }}</h4>
+                </div>
+
+                <div class="Desk">
+                  <small><i class="fas fa-star yellow-text"></i></small>
+                  <small>{{ $answers[1]->count_likes }}</small>
+                </div>
+                <div class="Mobile">
+                  <h4 class="d-inline"><i class="fas fa-star yellow-text"></i></h4>
+                  <h4 class="d-inline">{{ $answers[1]->count_likes }}</h4>
+                </div>
+
+            </div>
+
+            <!-- slide-header -->
+
+
+            <!-- slide-body -->
+
+            <div class="card-body Mobile">
+              <h2>{!! nl2br(e($answers[1]->text)) !!}</h2>
+            </div>
+
+            <div class="card-body Desk">
+              <p>{!! nl2br(e($answers[1]->text)) !!}</p>
+            </div>
+
+            <!-- slide-body -->
+
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="card border">
+
+
+            <!-- slide-header -->
+            <div class="container text-center">
+              <b class="h2"><i class="fas fa-crown red-text"></i></b>
+              <b class="h2">3位</b>
+            </div>
+
+            <div class="card-header d-flex justify-content-between">
+
+  
+                <div class="Desk">
+                  <img src="{{ $answers[2]->user->image ?? asset('logo/user.jpg') }}" alt="" height="20" width="20" class="rounded-circle">
+                  <small>{{ $answers[2]->user->name }}</small>
+                </div>
+                <div class="Mobile">
+                  <img src="{{ $answers[2]->user->image ?? asset('logo/user.jpg') }}" alt="" height="30" width="30" class="rounded-circle">
+                  <h4 class="d-inline">{{ $answers[2]->user->name }}</h4>
+                </div>
+
+                <div class="Desk">
+                  <small><i class="fas fa-star yellow-text"></i></small>
+                  <small>{{ $answers[2]->count_likes }}</small>
+                </div>
+                <div class="Mobile">
+                  <h4 class="d-inline"><i class="fas fa-star yellow-text"></i></h4>
+                  <h4 class="d-inline">{{ $answers[2]->count_likes }}</h4>
+                </div>
+
+            </div>
+
+            <!-- slide-header -->
+
+
+            <!-- slide-body -->
+
+            <div class="card-body Mobile">
+              <h2>{!! nl2br(e($answers[2]->text)) !!}</h2>
+            </div>
+
+            <div class="card-body Desk">
+              <p>{!! nl2br(e($answers[2]->text)) !!}</p>
+            </div>
+
+            <!-- slide-body -->
+
+          </div>
+        </div>
+
+
+
+
+
+
+        <!-- slide-content -->
+
+      </div>
+    </div>
+    <!-- swiper -->
+  @else
+    <div class="containerr">
+      <div class="text-center py-5">
+        <div class="card col-10 offset-1 col-md-6 offset-md-3 ">
+          <h3 class="my-5">調整中</h3>
+          <p>しばらくお待ちください</p>
+        </div>
+      </div>
+    </div>
+  @endif
 
   <div class="container orange lighten-5" style="max-width: 100%;">
     <div class="row Mobile">
@@ -64,11 +247,11 @@
       </div>
     </div>
 
-    <div class="col-12 col-md-8 offset-md-2 my-4 d-flex justify-content-between">
+    <!-- <div class="col-12 col-md-8 offset-md-2 my-4 d-flex justify-content-between">
       <img class="animated fadeInRight fast" src="{{ asset('logo/manzai.png') }}" alt="" width="90" height="90" >
       <img class="animated fadeInUp fast delay-2s" src="{{ asset('logo/monomane.png') }}" alt="" width="90" height="90">
       <img class="animated fadeInLeft delay-1s fast" src="{{ asset('logo/conte.png') }}" alt="" width="90" height="90">
-    </div> 
+    </div>  -->
 
     <div class="text-center my-5">
       <p>これからお笑いを始めようと思ったら</p>
