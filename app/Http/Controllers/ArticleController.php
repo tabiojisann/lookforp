@@ -29,11 +29,15 @@ class ArticleController extends Controller
     {
         $user     = Auth::user();
         $theme    = Theme::where('apply', 1)->first();
+        $id       = $theme->id;
    
         $articles = Article::orderBy('created_at', 'DESC')->paginate(5);
         $articles->load('user', 'keeps');
 
-        $answers = Answer::where('theme_id', $theme->id)->withCount('likes')->orderBy('likes_count', 'DESC')->get();
+        $answers = Answer::where('theme_id', $id)
+                                ->withCount('likes')
+                                ->orderBy('likes_count', 'DESC')
+                                ->get();
     
         
         return view('articles.index', [

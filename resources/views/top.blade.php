@@ -81,7 +81,6 @@
         <div class="swiper-slide">
           <div class="card border">
 
-
             <!-- slide-header -->
             <div class="container text-center">
               <b class="h2"><i class="fas fa-crown grey-text"></i></b>
@@ -179,12 +178,6 @@
 
           </div>
         </div>
-
-
-
-
-
-
         <!-- slide-content -->
 
       </div>

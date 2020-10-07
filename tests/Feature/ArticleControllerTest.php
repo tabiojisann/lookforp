@@ -9,7 +9,11 @@ use Tests\TestCase;
 
 class ArticleControllerTest extends TestCase
 {
-  use RefreshDatabase;
+  // use RefreshDatabase;
+
+  /**
+  * @test
+  */
 
   public function testindex()
   {
