@@ -8,7 +8,7 @@
   @include('flash')
   
   
-    @include('users.tabs',['hasShow' => true, 'hasMyArticles' => false])
+    <!-- @include('users.tabs',['hasShow' => true, 'hasMyArticles' => false]) -->
 
 
     <div class="container cloudy-knoxville-gradient" style="max-width: 100%;">

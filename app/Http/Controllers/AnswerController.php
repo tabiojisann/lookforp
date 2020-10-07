@@ -12,11 +12,14 @@ use App\Http\Requests\AnswerRequest;
 class AnswerController extends Controller
 {
 
-    public function index(Theme $theme)
+    public function index()
     {
+        $theme  = Theme::where('apply', 1)->first();
         $id = $theme->id;
 
-        $answers = Answer::where('theme_id', $id)->orderBy('created_at', 'DESC')->paginate(10);
+        $answers = Answer::where('theme_id', $id)->withCount('likes')->orderBy('likes_count', 'DESC')->paginate(10);
+        $answers->load('user', 'likes');
+                    
 
         return view('answers.index', [
             'theme' => $theme,
@@ -70,6 +73,7 @@ class AnswerController extends Controller
         $answer->likes()->detach($request->user()->id);
         $answer->likes()->attach($request->user()->id);
 
+
         return [
             'id' => $answer->id,
             'countLikes' => $answer->count_likes,
@@ -84,5 +88,21 @@ class AnswerController extends Controller
             'id' => $answer->id,
             'countLikes' => $answer->count_likes,
         ];
+    }
+
+    public function rank()
+    {
+        $theme = Theme::where('apply', 1)->first();
+        $id = $theme->id;
+
+        $answers = Answer::where('theme_id', $id)
+                        ->withCount('likes')
+                        ->orderBy('likes_count', 'DESC')
+                        ->get();
+        $answers->load('user', 'likes');
+
+        return view('answers.rank', [
+            'answers' => $answers,
+        ]);
     }
 }

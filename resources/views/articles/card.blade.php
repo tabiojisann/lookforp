@@ -64,8 +64,8 @@
   <span class="border"></span>
 
   @if(\Route::current() -> getName() == 'articles.popular')
-    @if(isset($article->stock))
-      <h6 class="text-muted"><span class="text-warning font-weight-bold ml-4">{{ $article->stock }}</span>人のユーザーが気になっています</h6>
+    @if(isset($article->count_keeps) && $article->count_keeps !== 0)
+      <h6 class="text-muted"><span class="text-warning font-weight-bold ml-4">{{ $article->count_keeps }}</span>人のユーザーが気になっています</h6>
     @endif
   @endif
     
@@ -132,40 +132,69 @@
     <div class="col-12">
       <div class="bg-white border mb-3">
 
+        @if(Auth::id() === $article->user_id)
+          <a href="{{ route('users.edit', $article->user_id) }}">
+            <img src="{{ $article->user->image ?: asset('logo/user.jpg') }}" width="25" height="25" class="rounded-circle m-2"  alt="">
+            <p class="text-danger d-inline">{{ $article->user->name }}</p>
+          </a>
 
-        <a href="{{ route('users.show', ['user' => $article->user]) }}">
-          <img src="{{ $article->user->image ?: asset('logo/user.jpg') }}" class="d-inline rounded-circle" width="25" height="25" alt="">
-          @if(Auth::id() === $article->user_id)
-            <b class="text-danger">{{ $article->user->name}}</b>
-          @else
-            <b class="text-info">{{ $article->user->name}}</b>
-          @endif
-        </a>
+          <div class="dropdown d-inline ml-1">
+
+            <!--Trigger-->
+            <i class="fas fa-ellipsis-h pt-2 text-muted" type="button" data-toggle="dropdown"></i>
+
+            <!--Menu-->
+            <div class="dropdown-menu dropdown-primary">
+
+              <button class="dropdown-item" type="button"
+                      onclick="location.href='{{ route('articles.edit', ['article' => $article]) }}'">
+                編集
+              </button>
+
+              <button class="dropdown-item text-danger" form="deleteArticle" type="submit">
+                削除
+              </button>
+            </div>
+
+          </div>
+
+          <form action="{{ route('articles.destroy',['article' => $article]) }}" method="post" id="deleteArticle">
+          @csrf
+          @method('DELETE')
+          </form>
+
+        @else
+          <a href="{{ route('users.show', $article->user_id) }}">
+            <img src="{{ $article->user->image ?: asset('logo/user.jpg') }}" width="25" height="25" class="rounded-circle m-2 "  alt="">
+            <p class="text-info d-inline">{{ $article->user->name }}</p>
+          </a> 
+        @endif 
 
         <h6 class="ml-4">{{ $article->title }}</h6>
-        <small class="d-block text-muted ml-4">ポジション：{{ $article->position }}</small>
-        <small class="d-block text-muted ml-4">ポジション：{{ $article->style }}</small>
+        <small class=" text-muted ml-2">ポジション：{{ $article->position }}</small>
+        <small class=" text-muted ml-2">ポジション：{{ $article->style }}</small>
 
        
         @if(\Route::current() -> getName() == 'articles.popular')
-          @if(isset($article->stock))
-            <h6 class="text-muted"><span class="text-warning font-weight-bold ml-4">{{ $article->stock }}</span>人のユーザーが気になっています</h6>
+          @if(isset($article->count_keeps) && $article->count_keeps !== 0)
+            <h6 class="text-muted"><span class="text-warning font-weight-bold ml-4">{{ $article->count_keeps }}</span>人のユーザーが気になっています</h6>
           @endif
-
-          {{ $article->count_keeps }}
         @endif
 
-        <article-keep
-          :initial-is-keep='@json($article->isKeep(Auth::user()))'
-          :initial-count-keeps='@json($article->stock)'
-          :authorized='@json(Auth::check())'
-          endpoint="{{ route('articles.keep', ['article' => $article]) }}"
-          >
-        </article-keep>
-        
-        <a href="{{ route('articles.show', ['article' => $article]) }}" class="btn btn-sm btn-mdb-color">
-          <i class="fas fa-align-justify text-info"></i>  詳細
-        </a>
+        <div>
+          <article-keep
+            :initial-is-keep='@json($article->isKeep(Auth::user()))'
+            :initial-count-keeps='@json($article->count_keeps)'
+            :authorized='@json(Auth::check())'
+            endpoint="{{ route('articles.keep', ['article' => $article]) }}"
+            >
+          </article-keep>
+          
+          <a href="{{ route('articles.show', ['article' => $article]) }}" class="btn btn-sm btn-mdb-color">
+            <i class="fas fa-align-justify text-info"></i>  詳細
+          </a>
+        </div>
+
         <small class="d-block mr-1 text-muted">{{ $article->created_at->format('Y年 n月 j日 / H:i') }}</small>
       </div>
     </div> 

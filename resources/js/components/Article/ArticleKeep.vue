@@ -4,10 +4,6 @@
 
       <div class="d-inline">
 
-        <!-- <div v-show="countKeeps" class="text-right Mobile">
-          <h6 class="text-muted"><span class="text-warning font-weight-bold">{{ countKeeps }}</span>人のユーザーが気になっています</h6>
-        </div> -->
-
         <button class="btn btn-success px-2 Mobile" type="button" 
                 :class="{'grey lighten-2':this.isKeep}"
                 @click="clickButton">
@@ -15,6 +11,7 @@
             :class="keepIcon">
           </i>気になる
         </button>
+
  
         <button class="btn btn-sm btn-success Desk"
                 :class="{'grey lighten-2':this.isKeep}"
@@ -23,7 +20,6 @@
             :class="keepIcon">
           </i>気になる
         </button>
-        <!-- <small>{{ countKeeps }}</small> -->
 
       </div>
     
@@ -38,7 +34,7 @@ export default {
     },
     initialCountKeeps: {
       type: Number,
-      default: 0,
+      default: null,
     },
     authorized: {
       type: Boolean,

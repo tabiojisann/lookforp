@@ -1,4 +1,5 @@
 $(function () {
+  // navbar-toggle
   $('.navbar-toggler').click( function () {
     if($('.navbar-collapse').hasClass('show')) {
       $('.navbar-collapse').removeClass('show');
@@ -6,5 +7,8 @@ $(function () {
       $('.navbar-collapse').addClass('show');
     }
   });
+  // navbar-toggle
+  
+
 
 });

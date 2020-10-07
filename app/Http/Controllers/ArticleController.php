@@ -30,6 +30,7 @@ class ArticleController extends Controller
         $theme    = Theme::where('apply', 1)->first();
    
         $articles = Article::orderBy('created_at', 'DESC')->paginate(5);
+        $articles->load('user', 'keeps');
         
         return view('articles.index', [
             'articles' => $articles, 
@@ -44,7 +45,8 @@ class ArticleController extends Controller
         $theme    = Theme::where('apply', 1)->first();
 
 
-        $articles = Article::orderBy('stock', 'DESC')->paginate(5);
+        $articles = Article::withCount('keeps')->orderBy('keeps_count', 'DESC')->paginate(5);
+        $articles->load('user', 'keeps');
 
         return view('articles.popular', [
             'articles' => $articles,
@@ -271,14 +273,9 @@ class ArticleController extends Controller
         $article->keeps()->detach($request->user()->id);
         $article->keeps()->attach($request->user()->id);
 
-        $article->stock = $article->count_keeps;
-
-        $article->save();
-
         return [
             'id' => $article->id,
             'countKeeps' => $article->count_keeps,
-            'stock' => $article->stock,
         ];
     }
 
@@ -286,14 +283,9 @@ class ArticleController extends Controller
     {
         $article->keeps()->detach($request->user()->id);
 
-        $article->stock = $article->count_keeps;
-
-        $article->save();
-
         return [
             'id' => $article->id,
             'countKeeps' => $article->count_keeps,
-            'stock' => $article->stock,
         ];
     }
 

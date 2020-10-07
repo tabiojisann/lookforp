@@ -26,6 +26,8 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
+
 import './bootstrap'
 import './main'
 import Vue from 'vue'
@@ -39,7 +41,6 @@ import AnswerLike from './components/Answer/AnswerLike'
 import NameValidate from './components/Auth/NameValidate'
 import EmailValidate from './components/Auth/EmailValidate'
 import PasswordValidate from './components/Auth/PasswordValidate'
-
 
 
 const app = new Vue({
@@ -57,3 +58,6 @@ const app = new Vue({
         PasswordValidate,
     }
 });
+
+
+  

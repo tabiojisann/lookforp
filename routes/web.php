@@ -22,6 +22,7 @@ Route::resource('/users', 'UserController')->only(['show', 'edit', 'update', 'de
 // Route::resource('/themes', 'ThemeController')->only(['show'])->middleware('auth');
 Route::resource('/answers', 'AnswerController')->only(['store', 'destroy',])->middleware('auth');
 Route::get('/themes/{theme}/answers/', 'answerController@index')->name('answers.index');
+Route::get('/rank', 'answerController@rank')->name('answers.rank');
 
 
 Route::prefix('articles')->name('articles.')->group(function () {

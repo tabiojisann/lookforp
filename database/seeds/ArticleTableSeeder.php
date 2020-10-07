@@ -18,7 +18,7 @@ class ArticleTableSeeder extends Seeder
         {
             Article::create(
                 [ 
-                    'id'         => $i,
+                    'id'         =>  $i,
                     'title'      => '漫才のボケ募集',
                     'text'       => '漫才のボケを募集しています',
                     'position'   => 'ボケ',
@@ -103,7 +103,6 @@ class ArticleTableSeeder extends Seeder
                     'text'       => '漫才の作家を募集しています',
                     'position'   => '作家',
                     'style'      => '漫才',
-                    'stock'      =>  $i,
                     'user_id'    =>  $i,
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),

@@ -11,6 +11,7 @@ class Answer extends Model
 {
     protected $fillable = [
         'text',
+        'star',
         'theme_id',
         'user_id',
     ];

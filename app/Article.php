@@ -17,7 +17,6 @@ class Article extends Model
         'position',
         'style',
         'image',
-        'stock',
     ];
 
     protected $dates = [

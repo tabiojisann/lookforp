@@ -13,6 +13,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
   <!-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> -->
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-179163460-1"></script>
 <script>
@@ -36,21 +37,32 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
   
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
- 
-
-
-
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script> -->
+  <!-- <script type="text/javascript"></script> -->
 
-
-  <script type="text/javascript"></script>
-
+  <script>
+    var mySwiper = new Swiper ('.swiper-container', {
+      loop: true,
+      speed: 1000,
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      // navigation: {
+      //   nextEl: '.swiper-button-next',
+      //   prevEl: '.swiper-button-prev',
+      // },
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+      autoplay: {
+        delay: 1000,
+      },
+    })
+  </script>
 </body>
 
 </html>

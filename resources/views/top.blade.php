@@ -1,4 +1,23 @@
 @guest
+
+  <div class="swiper-container">
+      <!-- Sliderの内包コンテナ -->
+      <div class="swiper-wrapper">
+          <!-- Slideさせたいコンテンツ -->
+          <div class="swiper-slide"><img src="{{ asset('logo/pen.png') }}" alt="" width=600 height=300></div>
+          <div class="swiper-slide"><img src="{{ asset('logo/ねこ.jpg') }}" alt="" width=600 height=300></div>
+          <div class="swiper-slide"><img src="{{ asset('logo/test.jpg') }}" alt="" width=600 height=300></div>
+      </div>
+      <!-- ページネーション（※省略可） -->
+      <div class="swiper-pagination"></div>
+      <!-- ナビゲーションボタン（※省略可） -->
+      <!-- <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div> -->
+
+      <!-- スクロールバー（※省略可） -->
+      <div class="swiper-scrollbar"></div>
+  </div>
+
   <div class="container orange lighten-5" style="max-width: 100%;">
     <div class="row Mobile">
       <div class="col-12">
@@ -61,9 +80,8 @@
 
     <div class="container col-12 col-md-6 offset-md-3 ">
       <div class="d-flex justify-content-around">
-        <a href="{{ route('articles.search') }}" class="border-bottom border-warning h6 text-muted">求人を探す</a>
-        <a href="{{ route('users.search') }}" class="border-bottom border-warning h6 text-muted">人を探す</a>
-        <a href="{{ route('articles.create') }}" class="border-bottom border-success h6 text-muted">募集かける</a>
+        <a href="{{ route('articles.search') }}" class="border  young-passion-gradient p-2 text-white">求人を探す</a>
+        <a href="{{ route('users.search') }}" class="border  green p-2 text-white">人を探す</a>
       </div>
 
     </div>
@@ -80,8 +98,14 @@
 
   @if(!empty($theme))
     <div class="container">
-      <div class="text-center py-5">
 
+      <div class="border bg blue lighten-5 text-center">
+        <a href="{{ route('articles.create') }}" class="btn btn-sm btn-outline-grey  text-muted">募集かける</a>
+        <a href="{{ route('users.edit', ['user' => $user]) }}" class="btn btn-sm btn-outline-grey  text-muted">プロフィール編集</a>
+        <a href="{{ route('users.keep', ['user' => $user]) }}" class="btn btn-sm btn-outline-grey  text-muted">気になるリスト</a>
+      </div>
+
+      <div class="text-center py-5">
         <h2 class="col-12">今週のお題</h2>
 
         <div class="card col-10 offset-1 col-md-6 offset-md-3 orange">
@@ -112,22 +136,11 @@
     </div>
   @endif
 
-  <div class="container col-12 col-md-6 offset-md-3 my-5">
+  <div class="container col-12 col-md-6 offset-md-3 mb-3">
     <div class="d-flex justify-content-around">
-      <a href="{{ route('articles.index') }}" class="border-bottom border-warning h6 text-muted">募集一覧</a>
-      <a href="{{ route('articles.create') }}" class="border-bottom border-success h6 text-muted">募集かける</a>
-      <a href="{{ route('users.keep', ['user' => $user]) }}" class="border-bottom border-success h6 text-muted">気になるリスト</a>
+      <a href="{{ route('articles.search') }}" class="border young-passion-gradient p-2 text-white">求人を探す</a>
+      <a href="{{ route('users.search') }}" class="border green p-2 text-white">人を探す</a>
     </div>
   </div>
-  <div class="container col-12 col-md-6 offset-md-3 ">
-    <div class="d-flex justify-content-around">
-      <a href="{{ route('articles.search') }}" class="border-bottom border-warning h6 text-muted">求人を探す</a>
-      <a href="{{ route('users.search') }}" class="border-bottom border-warning h6 text-muted">人を探す</a>
-      <a href="{{ route('users.edit', ['user' => $user]) }}" class="border-bottom border-warning h6 text-muted">プロフィール編集</a>
-    </div>
-  </div>
-
-
   
 @endauth
-
